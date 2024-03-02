@@ -1,18 +1,29 @@
 import Image from "next/image";
-import Link from 'next/link'
+import Navbar from "../components/Navbar";
+import Card from "../components/Card";
 
+const listCard = [
+  {
+    title: "Sviluppo",
+    text: "Sviluppo di applicazioni web e mobile",
+    price: "500"
+  },
+  {
+    title: "Design",
+    text: "Design di interfacce utente e user experience",
+    price: "300"
+  },
+  {
+    title: "Consulenza",
+    text: "Consulenza e formazione",
+    price: "100"
+  }
+]
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="fixed top-0 z-10 max-w-5xl w-full flex items-center justify-between font-mono text-sm px-10 bg-black">
-        <Link href="/" className="py-8 backdrop-blur-2xl text-yellow-400">
-        NIXO ><span className="animate-pulse">_</span>
-        </Link>
-        <Link href="/contact" className="py-8 backdrop-blur-2xl text-yellow-400">
-          CONTACT
-        </Link>
-      </div>
+    <main className="flex min-h-screen flex-col items-center justify-between px-24">
+      <Navbar />
       <section className="text-center py-40">
         <Image
           src="/astronaut-hero-img.webp"
@@ -28,10 +39,12 @@ export default function Home() {
           Trasforma le tue idee in realtà.
         </p>
       </section>
-      <section className="py-40">
-        <p className="text-xl container text-white lg:px-20">
-        Lorem ipsum dolor sit amet suscipit aenean euismod curae nisi tristique phasellus felis proin tempus dapibus habitant et in risus mi erat ex fusce gravida lacus luctus quam sociosqu mus magnis vestibulum facilisis integer massa leo ipsum tellus ad blandit porttitor per cubilia arcu platea aliquam cras primis nullam duis sollicitudin bibendum consectetur condimentum rhoncus malesuada ligula nulla dolor taciti metus parturient class dis ornare nisl nibh tincidunt magna placerat tortor nunc amet maecenas congue pharetra adipiscing porta diam laoreet conubia nam suspendisse nascetur ante curabitur lobortis netus id venenatis a libero sagittis letius egestas si molestie faucibus mattis
-        </p>
+      <section className="mx-auto py-40 flex flex-wrap items-center justify-center gap-y-4 lg:grid lg:grid-cols-3 lg:gap-3">
+      {
+        listCard.map((card) => {
+          return <Card title={card.title} text={card.text} price={card.price} />
+        })
+      }
       </section>
     </main>
   );
