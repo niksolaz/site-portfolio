@@ -6,17 +6,17 @@ const listCard = [
   {
     title: "Sviluppo",
     text: "Sviluppo di applicazioni web e mobile",
-    price: "500"
+    price: 500
   },
   {
     title: "Design",
     text: "Design di interfacce utente e user experience",
-    price: "300"
+    price: 300
   },
   {
     title: "Consulenza",
     text: "Consulenza e formazione",
-    price: "100"
+    price: 100
   }
 ]
 
