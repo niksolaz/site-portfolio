@@ -3,40 +3,13 @@ import Navbar from "../components/Navbar";
 import Card from "../components/Card";
 import About from "../components/About";
 
-const listCard = [
-  {
-    title: "Sviluppo",
-    text: "Sviluppo di applicazioni web e mobile",
-    price: 500,
-  },
-  {
-    title: "Design",
-    text: "Design di interfacce utente e user experience",
-    price: 300,
-  },
-  {
-    title: "Consulenza",
-    text: "Consulenza e formazione",
-    price: 100,
-  },
-  {
-    title: "Api",
-    text: "Sviluppo di backend e API",
-    price: 500,
-  },
-  {
-    title: "Gestione progetti",
-    text: "Design di interfacce utente e user experience",
-    price: 300,
-  },
-  {
-    title: "Caffè",
-    text: "Consulenza e formazione",
-    price: 100,
-  }
-];
+import {store}  from "../store/store";
 
 export default function Home() {
+  
+  const listCard = store.cards.listCard;
+  // const setListCard = store.cards.setListCard;
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between px-24">
       <Navbar />
@@ -45,7 +18,7 @@ export default function Home() {
           src="/astrox.webp"
           alt="Astronaut Hero Image"
           width={380}
-          height={37}
+          height={370}
           priority
           className="rounded-full shadow-yellow-400 shadow-lg mx-auto mb-10"
         />
@@ -55,9 +28,9 @@ export default function Home() {
         <p className="text-3xl  text-white">Trasforma le tue idee in realtà.</p>
       </section>
       <section className="mx-auto flex flex-wrap items-center justify-center gap-y-4 py-10 lg:grid lg:grid-cols-3 lg:gap-3">
-        {listCard.map((card) => {
+        {listCard.map((card, index) => {
           return (
-            <Card title={card.title} text={card.text} price={card.price} />
+            <Card key={index} title={card.title} text={card.text} price={card.price} />
           );
         })}
       </section>

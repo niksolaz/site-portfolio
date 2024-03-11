@@ -1,8 +1,10 @@
 import React from 'react'
+import {store}  from "../store/store";
 
 const About = () => {
+  const about = store.about;
   return (
-    <div>About</div>
+    <div>{ about }</div>
   )
 }
 
