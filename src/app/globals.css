@@ -3,16 +3,24 @@
 @tailwind utilities;
 
 :root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 50, 50, 50;
+}
+
+/* Classe per il tema scuro */
+.dark-theme {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 50, 50, 50;
   --background-end-rgb: 255, 255, 255;
 }
 
-/* Classe per il tema scuro */
-.dark-theme {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 50, 50, 50;
+.input, .textarea {
+  @apply border-2 border-yellow-400 rounded-md p-2 text-black w-full;
+}
+
+.btn {
+  @apply bg-yellow-500 p-2 rounded-md;
 }
 
 .icon-sun {
@@ -22,23 +30,6 @@
 .icon-moon {
   @apply bg-yellow-400 text-transparent
 }
-
-/* .st0{
-  fill:none;
-  stroke:#000000;
-  stroke-width:2;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-  stroke-miterlimit:10;
-} */
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 50, 50, 50;
-  }
-} */
 
 body {
   color: rgb(var(--foreground-rgb));

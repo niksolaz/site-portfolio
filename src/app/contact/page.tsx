@@ -4,6 +4,7 @@ import Alert from '../../components/Alert'
 import React, { useState, useRef } from 'react'
 import emailjs from '@emailjs/browser'
 import useAlert from '../../hooks/useAlert'
+import Image from "next/image";
 
 export default function Contact() {
   const formRef = useRef(null)
@@ -21,13 +22,11 @@ export default function Contact() {
     e.preventDefault();
     setIsLoading(true);
 
-    const serviceId = process.env.EMAILJS_SERVICE_ID;
-    const templateId = process.env.EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.EMAILJS_PUBLIC_KEY;
-
-    console.log(serviceId, templateId, publicKey)
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
     
-    /*
+    
     emailjs.send(
       serviceId!,
       templateId!,
@@ -51,20 +50,20 @@ export default function Contact() {
       console.error(err)
       showAlert({ show: true, text: 'An error occurred, please try again later', type: 'danger' } as { show: boolean, text: string, type?: string });
     })
-    */
+  
   };
   
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
          <Navbar />
          {alert.show && <Alert {...alert} />}
-         <div className="flex-1 min-w-[50%] flex flex-col">
-            <h1 className="head-text">Get in touch</h1>
+         <div className="flex-1 min-w-[50%] flex flex-col  mt-24">
+            <h1 className="head-text">Scrivimi per info e ti risponderò al più presto ... </h1>
             <form 
-              className="w-full flex flex-col gap-7 mt-14"
+              className="w-full flex flex-col gap-7 mt-4"
               onSubmit={handleSubmit}
             >
-              <label className="ext-black-50 font-semibold">
+              <label className="text-yellow-500  font-semibold">
                 Your Name
                 <input 
                   type="text" 
@@ -76,7 +75,7 @@ export default function Contact() {
                   onChange={handleChange}
                 />
               </label>
-              <label className="ext-black-50 font-semibold">
+              <label className="text-yellow-500 font-semibold">
                 Your Email
                 <input 
                   type="email" 
@@ -88,7 +87,7 @@ export default function Contact() {
                   onChange={handleChange}
                 />
               </label>
-              <label className="ext-black-50 font-semibold">
+              <label className="text-yellow-500 font-semibold">
                 Your Message
                 <textarea 
                   name="message"
@@ -108,6 +107,18 @@ export default function Contact() {
                 {isLoading ? 'Sending...' : 'Send Message'}
               </button>
             </form>
+            <h1 className="mt-14">... oppure contattami su Linkedin</h1>
+            <div className="py-5">
+              <a href="https://www.linkedin.com/in/nicolasolazzo/" target="_blank" rel="noreferrer">
+                <Image
+                  src="/linkedin.png"
+                  alt="Linkedin Logo"
+                  width={24}
+                  height={24}
+                  priority
+                />
+              </a>
+            </div>
           </div>
         </main>
     )
