@@ -6,19 +6,14 @@ interface Card {
 
 const listCard = [
       {
-        title: "Sviluppo",
-        text: "Sviluppo di applicazioni web e mobile",
-        price: 400,
-      },
-      {
         title: "Design",
         text: "Design di interfacce utente e user experience",
         price: 300,
       },
       {
-        title: "Consulenza",
-        text: "Consulenza e formazione",
-        price: 100,
+        title: "Sviluppo",
+        text: "Sviluppo di applicazioni web e mobile",
+        price: 400,
       },
       {
         title: "Api",
@@ -26,13 +21,18 @@ const listCard = [
         price: 500,
       },
       {
-        title: "Gestione progetti",
-        text: "Design di interfacce utente e user experience",
+        title: "Consulenza",
+        text: "Consulenza e formazione",
+        price: 100,
+      },
+      {
+        title: "Gestione",
+        text: "Gestione manutenzione progetti da valutare in base al progetto",
         price: 300,
       },
       {
-        title: "Caffè",
-        text: "Consulenza e formazione",
+        title: "Fromazione",
+        text: "Formazione in ambito web",
         price: 100,
       }
     ]

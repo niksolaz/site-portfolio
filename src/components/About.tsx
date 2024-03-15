@@ -2,11 +2,14 @@ import React from 'react'
 import {store}  from "../store/store";
 
 const About = () => {
-  const about = store.about;
+  const about = store.about
   return (
-    <div className="flex flex-wrap items-center justify-center lg:grid lg:grid-cols-2 gap-2">
-       <div className="col-span-1 mx-4 text-justify">{ about }</div>
-       <div className="col-span-1 mx-4 text-justify text-yellow-500">{ about }</div>
+    <div className="flex flex-wrap items-center justify-center space-y-4">
+       <span className="text-justify min-w-44 w-[800px] mx-auto">{ about }</span>
+       <span className="text-justify min-w-44 w-[800px] mx-auto">
+        <a className="text-yellow-400 cursor-pointer" href="/contact">Contattami</a> e insieme valuteremo la fattibilità e la realizzazione del tuo progetto.
+        Sono sicuro che potremo trovare la soluzione migliore per te.
+       </span>
     </div>
   )
 }
