@@ -104,7 +104,7 @@ export default function Contact() {
                 className="btn"
                 disabled={isLoading}
               >
-                {isLoading ? 'Sending...' : 'Send Message'}
+                {isLoading ? 'Sending...' : 'Send'}
               </button>
             </form>
             <h1 className="mt-14">... oppure contattami su Linkedin</h1>
