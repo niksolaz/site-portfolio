@@ -4,17 +4,41 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  --background-start-rgb: 50, 50, 50;
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
+/* Classe per il tema scuro */
+.dark-theme {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 50, 50, 50;
+}
+
+.icon-sun {
+  @apply bg-white text-transparent
+}
+
+.icon-moon {
+  @apply bg-yellow-400 text-transparent
+}
+
+/* .st0{
+  fill:none;
+  stroke:#000000;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-miterlimit:10;
+} */
+
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-end-rgb: 50, 50, 50;
   }
-}
+} */
 
 body {
   color: rgb(var(--foreground-rgb));
