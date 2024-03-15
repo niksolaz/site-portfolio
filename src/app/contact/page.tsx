@@ -13,12 +13,12 @@ export default function Contact() {
   
   const { alert, showAlert, hideAlert } = useAlert()
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
 
