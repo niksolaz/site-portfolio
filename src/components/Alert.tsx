@@ -1,6 +1,11 @@
 import React from 'react'
 
-const Alert = ({type, text, show}) => {
+interface AlertProps {
+    type: string;
+    text: string;
+    show: boolean;
+    }
+const Alert = ({type, text, show}: AlertProps) => {
   return (
     <div className="absolute top-10 left-0 right-0 flex justify-center items-center">
         <div 

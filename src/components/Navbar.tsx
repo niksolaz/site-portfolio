@@ -9,12 +9,12 @@ const Navbar = () => {
   useEffect(() => {
     if (theme) {
       document.body.classList.add('dark-theme');
-      document.getElementById('theme-switcher').classList.remove('icon-moon');
-      document.getElementById('theme-switcher').classList.add('icon-sun');
+      document.getElementById('theme-switcher')?.classList.remove('icon-moon');
+      document.getElementById('theme-switcher')?.classList.add('icon-sun');
     } else {
       document.body.classList.remove('dark-theme');
-      document.getElementById('theme-switcher').classList.remove('icon-sun');
-      document.getElementById('theme-switcher').classList.add('icon-moon');
+      document.getElementById('theme-switcher')?.classList.remove('icon-sun');
+      document.getElementById('theme-switcher')?.classList.add('icon-moon');
     }
   }, [theme])
 
