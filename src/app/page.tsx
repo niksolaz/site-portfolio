@@ -24,7 +24,7 @@ export default function Home() {
           className="rounded-full shadow-yellow-400 shadow-lg mx-auto mb-10"
         />
         <h2 className="block bg-gradient-to-r from-yellow-400 to-yellow-800 bg-clip-text py-5 text-8xl text-transparent">
-          NIXO
+          Nicola Solazzo
         </h2>
         <p className="text-3xl">Trasforma le tue idee in realtà.</p>
       </section>

@@ -25,7 +25,7 @@ const Navbar = () => {
     <>
       <div className="fixed top-0 z-10 max-w-5xl w-full flex items-center justify-between font-mono text-sm px-10">
           <Link href="/" className="pt-8 backdrop-blur text-yellow-400">
-          NIXO &gt;<span className="animate-pulse">_</span>
+          Nicola Solazzo &gt;<span className="animate-pulse">_</span>
           </Link>
           <div className="flex items-center justify-between space-x-2 pt-8 backdrop-blur">
             <Link href="/contact" className="text-yellow-400">
