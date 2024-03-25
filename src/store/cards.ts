@@ -6,33 +6,33 @@ interface Card {
 
 const listCard = [
       {
-        title: "Design",
-        text: "Design di interfacce utente e user experience",
+        title: "Frontend",
+        text: "Design di interfacce utente e user experience, sviluppate con Vue.js, React.js, TailwindCSS, Bootstrap, Material-UI, SASS, CSS3, HTML5",
         price: 300,
       },
       {
-        title: "Sviluppo",
-        text: "Sviluppo di applicazioni web e mobile",
+        title: "Backend",
+        text: "Sviluppo di backend con Node.js, Express.js, MongoDB, MySQL, PostgreSQL, Firebase, GraphQL, REST API",
         price: 400,
       },
       {
-        title: "Api",
-        text: "Sviluppo di backend e API",
+        title: "Integrazioni Api",
+        text: "Sviluppo di applicazioni con API di terze parti, come Google Maps, Stripe, Twilio, SendGrid, OpenWeatherMap, ecc.",
         price: 500,
       },
       {
-        title: "Consulenza",
-        text: "Consulenza e formazione",
+        title: "Tipologia di progetti",
+        text: "Sviluppo di siti web, web app, applicazioni desktop, applicazioni web progressive, applicazioni mobile, ecc.",
         price: 100,
       },
       {
         title: "Gestione",
-        text: "Gestione manutenzione progetti da valutare in base al progetto",
+        text: "Gestione di progetti con metodologie Agile, come Scrum, Kanban, Lean, ecc.",
         price: 300,
       },
       {
-        title: "Fromazione",
-        text: "Formazione in ambito web",
+        title: "Strumenti di sviluppo",
+        text: "Utilizzo di strumenti di sviluppo come Git, GitHub, VS Code, Slack, Monday, Docker, ecc.",
         price: 100,
       }
     ]
