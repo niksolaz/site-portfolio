@@ -5,13 +5,13 @@
 :root {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 50, 50, 50;
+  --background-end-rgb: 0, 0, 0;
 }
 
 /* Classe per il tema scuro */
-.dark-theme {
+.light-theme {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 50, 50, 50;
+  --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
 }
 

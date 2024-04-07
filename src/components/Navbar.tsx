@@ -8,11 +8,11 @@ const Navbar = () => {
 
   useEffect(() => {
     if (theme) {
-      document.body.classList.add('dark-theme');
+      document.body.classList.add('light-theme');
       document.getElementById('theme-switcher')?.classList.remove('icon-moon');
       document.getElementById('theme-switcher')?.classList.add('icon-sun');
     } else {
-      document.body.classList.remove('dark-theme');
+      document.body.classList.remove('light-theme');
       document.getElementById('theme-switcher')?.classList.remove('icon-sun');
       document.getElementById('theme-switcher')?.classList.add('icon-moon');
     }
@@ -31,7 +31,7 @@ const Navbar = () => {
             <Link href="/contact" className="text-yellow-400">
                 CONTACT
             </Link>
-            <button onClick={toggleTheme}>
+            {/* <button onClick={toggleTheme}>
             <Image
                 id="theme-switcher"
                 className="relative rounded-full"
@@ -41,7 +41,7 @@ const Navbar = () => {
                 height={20}
                 priority
                 />
-            </button>
+            </button> */}
           </div>
       </div>
     </>
