@@ -1,17 +1,89 @@
 'use client'
 import Navbar from "../../components/Navbar";
 import Alert from '../../components/Alert'
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import emailjs from '@emailjs/browser'
 import useAlert from '../../hooks/useAlert'
 import Image from "next/image";
+import Link from 'next/link'
+
+interface IForm {
+  name: string;
+  email: string;
+  message: string;
+  placeholderName: string;
+  placeholderEmail: string;
+  placeholderMessage: string;
+}
 
 export default function Contact() {
   const formRef = useRef(null)
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [isLoading, setIsLoading] = useState(false)
+
+  const [theme, setTheme] = useState(false)
+  const [local, setLocal] = useState('en')
   
   const { alert, showAlert, hideAlert } = useAlert()
+
+  const localLink: {en: string, it: string, es: string} = {
+    en: 'CONTACT ME',
+    it: 'CONTATTAMI',
+    es: 'CONTACTAME'
+  }
+
+  const preTitle: {en: string, it: string, es: string} = {
+    en: 'Write me for info and I will reply as soon as possible ...',
+    it: 'Scrivimi per info e ti risponderò al più presto ... ',
+    es: 'Escríbeme para obtener información y te responderé lo antes posible ...'
+  }
+
+  const endTitle: {en: string, it: string, es: string} = {
+    en: '... or contact me on Linkedin',
+    it: '... oppure contattami su Linkedin',
+    es: '... o contáctame en Linkedin'
+  }
+
+  const btnSend: {en: string, it: string, es: string} = {
+    en: 'SEND',
+    it: 'INVIA',
+    es: 'ENVIAR'
+  }
+
+  const formLabel: {en: IForm, it: IForm, es: IForm} = {
+    en: {
+      name: 'Your Name',
+      email: 'Your Email',
+      message: 'Your Message',
+      placeholderName: 'John Doe',
+      placeholderEmail: 'email@example.com',
+      placeholderMessage: 'let me know how I can help you'
+    },
+    it: {
+      name: 'Il tuo Nome',
+      email: 'La tua Email',
+      message: 'Il tuo Messaggio',
+      placeholderName: 'Mario Rossi',
+      placeholderEmail: 'email@esempio.com',
+      placeholderMessage: 'fammi sapere come posso aiutarti'
+    },
+    es: {
+      name: 'Tu Nombre',
+      email: 'Tu Correo Electrónico',
+      message: 'Tu Mensaje',
+      placeholderName: 'Juan Pérez',
+      placeholderEmail: 'email@ejemplo.com',
+      placeholderMessage: 'déjame saber cómo puedo ayudarte'
+    }
+  }
+
+  const toggleTheme = () => {
+    setTheme(!theme)
+  }
+
+  const selectTongue = (e:any) => {
+    setLocal(e.target.value)
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -52,48 +124,83 @@ export default function Contact() {
     })
   
   };
+
+  useEffect(() => {
+    if (theme) {
+      document.body.classList.add('light-theme');
+      document.getElementById('theme-switcher')?.classList.remove('icon-moon');
+      document.getElementById('theme-switcher')?.classList.add('icon-sun');
+      document.getElementById('footer-switcher')?.classList.remove('footer-light');
+      document.getElementById('footer-switcher')?.classList.add('footer-dark');
+    } else {
+      document.body.classList.remove('light-theme');
+      document.getElementById('theme-switcher')?.classList.remove('icon-sun');
+      document.getElementById('theme-switcher')?.classList.add('icon-moon');
+      document.getElementById('footer-switcher')?.classList.remove('footer-dark');
+      document.getElementById('footer-switcher')?.classList.add('footer-light');
+    }
+  }, [theme])
   
     return (
+      <>
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
-         <Navbar />
+        <Navbar local={local} />
+          <div className="fixed top-0 z-20 flex items-center justify-center space-x-4 py-2">
+            <button onClick={toggleTheme}>
+              <Image
+                  id="theme-switcher"
+                  className="rounded-full w-6 h-6 lg:w-8 lg:h-8 border border-yellow-400 p-1 bg-yellow-400"
+                  src="/theme.svg"
+                  alt="theme light/dark mode switcher"
+                  width={20}
+                  height={20}
+                  priority
+                  />
+            </button>
+            <select onChange={selectTongue} className="h-6 text-xs lg:h-8 lg:text-sm border border-yellow-400 p-1 bg-yellow-400 rounded-lg">
+              <option value="en">EN</option>
+              <option value="it">IT</option>
+              <option value="es">ES</option>
+            </select>
+          </div>
          {alert.show && <Alert {...alert} />}
          <div className="flex-1 min-w-[50%] flex flex-col  mt-24">
-            <h1 className="head-text">Scrivimi per info e ti risponderò al più presto ... </h1>
+            <h1 className="head-text">{ preTitle[local as keyof typeof preTitle] }</h1>
             <form 
               className="w-full flex flex-col gap-7 mt-4"
               onSubmit={handleSubmit}
             >
               <label className="text-yellow-500  font-semibold">
-                Your Name
+                {formLabel[local as keyof typeof formLabel].name}
                 <input 
                   type="text" 
                   name="name"
                   className="input"
-                  placeholder="Mario Rossi"
+                  placeholder={formLabel[local as keyof typeof formLabel].placeholderName}
                   required
                   value={form.name}
                   onChange={handleChange}
                 />
               </label>
               <label className="text-yellow-500 font-semibold">
-                Your Email
+                {formLabel[local as keyof typeof formLabel].email}
                 <input 
                   type="email" 
                   name="email"
                   className="input"
-                  placeholder="email@example.com"
+                  placeholder={formLabel[local as keyof typeof formLabel].placeholderEmail}
                   required
                   value={form.email}
                   onChange={handleChange}
                 />
               </label>
               <label className="text-yellow-500 font-semibold">
-                Your Message
+                {formLabel[local as keyof typeof formLabel].message}
                 <textarea 
                   name="message"
                   rows={4}
                   className="textarea"
-                  placeholder="let me know how I can help you"
+                  placeholder={formLabel[local as keyof typeof formLabel].placeholderMessage}
                   required
                   value={form.message}
                   onChange={handleChange}
@@ -104,10 +211,10 @@ export default function Contact() {
                 className="btn"
                 disabled={isLoading}
               >
-                {isLoading ? 'Sending...' : 'Send'}
+                {isLoading ? 'Sending...' : btnSend[local as keyof typeof btnSend]}
               </button>
             </form>
-            <h1 className="mt-14">... oppure contattami su Linkedin</h1>
+            <h1 className="mt-14">{ endTitle[local as keyof typeof endTitle] }</h1>
             <div className="py-5">
               <a href="https://www.linkedin.com/in/nicolasolazzo/" target="_blank" rel="noreferrer">
                 <Image
@@ -121,5 +228,12 @@ export default function Contact() {
             </div>
           </div>
         </main>
+        <footer id="footer-switcher" className="w-full text-center py-4 mt-6 rounded-t-lg">
+          <p>© 2024 Nicola Solazzo</p>
+          <Link href="/contact" className="text-xs font-medium ">
+            {localLink[local as keyof typeof localLink]}
+          </Link>
+        </footer>
+      </>
     )
 }
