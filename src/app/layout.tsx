@@ -3,8 +3,8 @@ import Head from 'next/head';
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: "NIKSOLAZ",
-  description: "FULLSTACK DEVELOPER",
+  title: "Nicola Solazzo",
+  description: "FULLSTACK DEVELOPER"
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
       <Head>
         <title>{metadata.title as string}</title>
         <meta name="description" content={metadata.description as string}/>
-        <link rel="icon" href="/favicon-2.ico" sizes="16x16" type="image/x-icon"/>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
       </Head>
       <body>{children}</body>
     </html>
