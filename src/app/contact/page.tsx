@@ -143,7 +143,7 @@ export default function Contact() {
   
     return (
       <>
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <main className="flex min-h-screen flex-col items-center justify-between p-5 lg:p-24">
         <Navbar local={local} />
           <div className="fixed top-0 z-20 flex items-center justify-center space-x-4 py-2">
             <button onClick={toggleTheme}>
