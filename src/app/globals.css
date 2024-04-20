@@ -15,6 +15,14 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+.footer-light {
+  @apply bg-white text-yellow-400;
+}
+
+.footer-dark {
+  @apply bg-black text-yellow-400;
+}
+
 .input, .textarea {
   @apply border-2 border-yellow-400 rounded-md p-2 text-black w-full;
 }

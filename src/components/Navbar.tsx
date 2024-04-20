@@ -1,47 +1,23 @@
 'use client'
 import Link from 'next/link'
-import React, { useState, useEffect } from 'react'
-import Image from "next/image";
+import React from 'react'
 
-const Navbar = () => {
-  const [theme, setTheme] = useState(false)
-
-  useEffect(() => {
-    if (theme) {
-      document.body.classList.add('light-theme');
-      document.getElementById('theme-switcher')?.classList.remove('icon-moon');
-      document.getElementById('theme-switcher')?.classList.add('icon-sun');
-    } else {
-      document.body.classList.remove('light-theme');
-      document.getElementById('theme-switcher')?.classList.remove('icon-sun');
-      document.getElementById('theme-switcher')?.classList.add('icon-moon');
-    }
-  }, [theme])
-
-  const toggleTheme = () => {
-    setTheme(!theme)
+const Navbar = ({local}: {local: string}) => {
+  const localLink: {en: string, it: string, es: string} = {
+    en: 'CONTACT ME',
+    it: 'CONTATTAMI',
+    es: 'CONTACTAME'
   }
   return (
     <>
-      <div className="fixed top-0 z-10 max-w-5xl w-full flex items-center justify-between font-mono text-sm px-10">
-          <Link href="/" className="pt-8 backdrop-blur text-yellow-400">
+      <div className="fixed top-0 z-10 max-w-5xl w-full flex items-center justify-between font-mono text-sm px-4 backdrop-blur py-4">
+          <Link href="/" className="text-yellow-400 text-xs lg:text-sm">
           Nicola Solazzo &gt;<span className="animate-pulse">_</span>
           </Link>
-          <div className="flex items-center justify-between space-x-2 pt-8 backdrop-blur">
-            <Link href="/contact" className="text-yellow-400">
-                CONTACT
+          <div className="flex items-center justify-between space-x-2" >
+            <Link href="/contact" className="text-yellow-400 text-xs lg:text-sm">
+              {localLink[local as keyof typeof localLink]}
             </Link>
-            {/* <button onClick={toggleTheme}>
-            <Image
-                id="theme-switcher"
-                className="relative rounded-full"
-                src="/theme.svg"
-                alt="theme light/dark mode switcher"
-                width={20}
-                height={20}
-                priority
-                />
-            </button> */}
           </div>
       </div>
     </>
