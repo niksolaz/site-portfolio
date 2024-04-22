@@ -145,24 +145,24 @@ export default function Contact() {
       <>
         <main className="flex min-h-screen flex-col items-center justify-between p-5 lg:p-24">
         <Navbar local={local} />
-          <div className="fixed top-0 z-20 flex items-center justify-center space-x-4 py-2">
-            <button onClick={toggleTheme}>
-              <Image
-                  id="theme-switcher"
-                  className="rounded-full w-6 h-6 lg:w-8 lg:h-8 border border-yellow-400 p-1 bg-yellow-400"
-                  src="/theme.svg"
-                  alt="theme light/dark mode switcher"
-                  width={20}
-                  height={20}
-                  priority
-                  />
-            </button>
-            <select onChange={selectTongue} className="h-6 text-xs lg:h-8 lg:text-sm border border-yellow-400 p-1 bg-yellow-400 rounded-lg">
-              <option value="en">EN</option>
-              <option value="it">IT</option>
-              <option value="es">ES</option>
-            </select>
-          </div>
+        <div className="fixed top-0 z-20 flex items-center justify-center space-x-4 py-2">
+          <button onClick={toggleTheme}>
+            <Image
+                id="theme-switcher"
+                className="rounded-full w-6 h-6 lg:w-8 lg:h-8 p-1"
+                src="/theme.svg"
+                alt="theme light/dark mode switcher"
+                width={20}
+                height={20}
+                priority
+                />
+          </button>
+          <select onChange={selectTongue} className="h-6 text-xs text-gray-600 lg:h-8 lg:text-sm border border-gray-400 p-1 bg-gray-200 rounded-lg">
+            <option value="en">EN</option>
+            <option value="it">IT</option>
+            <option value="es">ES</option>
+          </select>
+        </div>
          {alert.show && <Alert {...alert} />}
          <div className="flex-1 min-w-[50%] flex flex-col  mt-24">
             <h1 className="head-text">{ preTitle[local as keyof typeof preTitle] }</h1>
@@ -170,7 +170,7 @@ export default function Contact() {
               className="w-full flex flex-col gap-7 mt-4"
               onSubmit={handleSubmit}
             >
-              <label className="text-yellow-500  font-semibold">
+              <label className=" font-semibold">
                 {formLabel[local as keyof typeof formLabel].name}
                 <input 
                   type="text" 
@@ -182,7 +182,7 @@ export default function Contact() {
                   onChange={handleChange}
                 />
               </label>
-              <label className="text-yellow-500 font-semibold">
+              <label className="font-semibold">
                 {formLabel[local as keyof typeof formLabel].email}
                 <input 
                   type="email" 
@@ -194,7 +194,7 @@ export default function Contact() {
                   onChange={handleChange}
                 />
               </label>
-              <label className="text-yellow-500 font-semibold">
+              <label className="font-semibold">
                 {formLabel[local as keyof typeof formLabel].message}
                 <textarea 
                   name="message"

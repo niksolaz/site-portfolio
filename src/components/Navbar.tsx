@@ -11,11 +11,11 @@ const Navbar = ({local}: {local: string}) => {
   return (
     <>
       <div className="fixed top-0 z-10 max-w-5xl w-full flex items-center justify-between font-mono text-sm px-4 backdrop-blur py-4">
-          <Link href="/" className="text-yellow-400 text-xs lg:text-sm">
+          <Link href="/" className="text-gray-300 text-xs lg:text-sm uppercase">
           Nicola Solazzo &gt;<span className="animate-pulse">_</span>
           </Link>
           <div className="flex items-center justify-between space-x-2" >
-            <Link href="/contact" className="text-yellow-400 text-xs lg:text-sm">
+            <Link href="/contact" className="text-gray-300 text-xs lg:text-sm">
               {localLink[local as keyof typeof localLink]}
             </Link>
           </div>

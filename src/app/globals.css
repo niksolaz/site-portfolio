@@ -3,40 +3,46 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255;
+  --foreground-rgb: 200, 200, 200;
   --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
+  --background-end-rgb: 5, 65, 77;
 }
 
 /* Classe per il tema scuro */
 .light-theme {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 30, 30, 30;
+  --background-start-rgb: 5, 65, 77;
+  --background-end-rgb: 215, 215, 215;
 }
 
 .footer-light {
-  @apply bg-white text-yellow-400;
+  @apply border-t border-white py-4;
+  --foreground-rgb: 200, 200, 200;
+  --background-start-rgb: 5, 65, 77;
+  --background-end-rgb: 215, 215, 215;
 }
 
 .footer-dark {
-  @apply bg-black text-yellow-400;
+  @apply border-t border-black py-4;
+  --foreground-rgb: 30, 30, 30;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 5, 65, 77;
 }
 
 .input, .textarea {
-  @apply border-2 border-yellow-400 rounded-md p-2 text-black w-full;
+  @apply border-2 border-gray-200 rounded-md p-2 text-black w-full;
 }
 
 .btn {
-  @apply bg-yellow-500 p-2 rounded-md;
+  @apply p-2 rounded-md w-1/4 font-semibold text-gray-200 bg-gradient-to-r from-sky-900 to-sky-700 shadow-sm shadow-sky-700 focus:shadow-sky-900;
 }
 
 .icon-sun {
-  @apply bg-white text-transparent
+  @apply bg-gray-200 text-transparent rotate-180 delay-75 duration-300 ease-in-out;
 }
 
 .icon-moon {
-  @apply bg-yellow-400 text-transparent
+  @apply bg-yellow-200 text-transparent rotate-0 delay-75 duration-300 ease-in-out
 }
 
 body {

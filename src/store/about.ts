@@ -14,45 +14,41 @@ export const about: AboutObject = {
 
   it: {
     main: `
-    Hai un'idea e vuoi approfondire se è fattibile?
-    Pensi di avere un progetto che potrebbe essere interessante?
-    Mi chiamo Nicola e sono un programmatore con anni di esperienza.
-    Il mio obiettivo è trasformare le tue idee in realtà.
-    Sono specializzato nello sviluppo web e desktop.
-    I miei focus tecnologici sono Vue.js/Nuxt.js e React.js/Next.js per il frontend e Node.js per il backend.
-    Sul fronte desktop mi occupo dello sviluppo con Electron.js. Mentre per le attività di automazione utilizzo Python.
+    Sono Nicola Solazzo, un appassionato sviluppatore con un occhio attento al frontend e un interesse crescente nel backend. 
+    Attraverso la mia esperienza con Vue.js, React e l'esplorazione del lato server tramite Node.js, 
+    cerco di spingere i confini della creazione digitale. 
+    La mia passione per la programmazione mi ha portato a creare applicazioni web e desktop, 
+    e sono sempre alla ricerca di nuovi progetti e sfide.
+    Penso che la programmazione sia un'arte e cerco di creare applicazioni che siano non solo funzionali,
+    ma anche belle e intuitive.
     `,
     link: 'Contattami',
-    textLink:`  e insieme valuteremo la fattibilità e la realizzazione del tuo progetto.
-    Sono sicuro che potremo trovare la soluzione migliore per te.`
+    textLink:`  se anche tu come me credi che la programmazione sia un'arte`
   },
   en: {
     main: `
-    Do you have an idea and want to deepen if it is feasible?
-    Do you think you have a project that could be interesting?
-    My name is Nicola and I am a programmer with years of experience.
-    My goal is to turn your ideas into reality.
-    I specialize in web and desktop development.
-    My technological focuses are Vue.js/Nuxt.js and React.js/Next.js for the frontend and Node.js for the backend.
-    On the desktop side, I take care of development with Electron.js. While for automation tasks I use Python.
+    I'm Nicola Solazzo, a passionate developer with a keen eye on frontend and a growing interest in backend. 
+    Through my experience with Vue.js, React, and exploring the server side with Node.js, 
+    I strive to push the boundaries of digital creation.
+    My passion for programming has led me to create web and desktop applications, 
+    and I'm always on the lookout for new projects and challenges. 
+    I believe programming is an art and aim to create applications that are not only functional 
+    but also beautiful and intuitive.
     `,
     link: 'Contact me',
-    textLink:` and together we will evaluate the feasibility and realization of your project.
-    I am sure we can find the best solution for you.`
+    textLink:` if you also believe that programming is an art`
   },
   es: {
     main: `
-    ¿Tienes una idea y quieres profundizar si es factible?
-    ¿Crees que tienes un proyecto que podría ser interesante?
-    Mi nombre es Nicola y soy un programador con años de experiencia.
-    Mi objetivo es convertir tus ideas en realidad.
-    Estoy especializado en el desarrollo web y de escritorio.
-    Mis focos tecnológicos son Vue.js/Nuxt.js y React.js/Next.js para el frontend y Node.js para el backend.
-    En el lado de escritorio, me ocupo del desarrollo con Electron.js. Mientras que para tareas de automatización utilizo Python.
+    Soy Nicola Solazzo, un desarrollador apasionado con un ojo atento al frontend y un interés creciente en el backend. 
+    A través de mi experiencia con Vue.js, React y explorando el lado del servidor con Node.js, 
+    busco empujar los límites de la creación digital. 
+    Mi pasión por la programación me ha llevado a crear aplicaciones web y de escritorio, y siempre estoy en busca de nuevos proyectos y desafíos. 
+    Creo que la programación es un arte y mi objetivo es crear aplicaciones que no solo sean funcionales, 
+    sino también hermosas e intuitivas.
     `,
     link: 'Contáctame',
-    textLink:` y juntos evaluaremos la viabilidad y realización de tu proyecto.
-    Estoy seguro de que podemos encontrar la mejor solución para ti.`
+    textLink:` si también crees que la programación es un arte`
   }
 }
   

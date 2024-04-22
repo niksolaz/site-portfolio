@@ -13,9 +13,9 @@ export default function Home() {
   const [local, setLocal] = useState('en')
 
   const subtitle: {en: string, it: string, es: string} = {
-    en: 'Transform your ideas into reality.',
-    it: 'Trasforma le tue idee in realtà.',
-    es: 'Transforma tus ideas en realidad.'
+    en: "Like an astronaut in the digital universe, I explore the frontiers of development with boldness and creativity.",
+    it: "Come un astronauta nell'universo digitale, esploro le frontiere dello sviluppo con audacia e creatività.",
+    es: "Como un astronauta en el universo digital, explorar las fronteras del desarrollo con audacia y creatividad."
   }
 
   const localLink: {en: string, it: string, es: string} = {
@@ -58,7 +58,7 @@ export default function Home() {
         <button onClick={toggleTheme}>
           <Image
               id="theme-switcher"
-              className="rounded-full w-6 h-6 lg:w-8 lg:h-8 border border-yellow-400 p-1 bg-yellow-400"
+              className="rounded-full w-6 h-6 lg:w-8 lg:h-8 p-1"
               src="/theme.svg"
               alt="theme light/dark mode switcher"
               width={20}
@@ -66,7 +66,7 @@ export default function Home() {
               priority
               />
         </button>
-        <select onChange={selectTongue} className="h-6 text-xs lg:h-8 lg:text-sm border border-yellow-400 p-1 bg-yellow-400 rounded-lg">
+        <select onChange={selectTongue} className="h-6 text-xs text-gray-600 lg:h-8 lg:text-sm border border-gray-400 p-1 bg-gray-200 rounded-lg">
           <option value="en">EN</option>
           <option value="it">IT</option>
           <option value="es">ES</option>
@@ -80,7 +80,7 @@ export default function Home() {
             width={380}
             height={370}
             priority
-            className="rounded-full shadow-yellow-400 shadow-lg mx-auto mb-4 lg:mb-10"
+            className="rounded-full shadow-gray-200 shadow-lg mx-auto mb-4 lg:mb-10 delay-75 duration-300 ease-in-out transform hover:rotate-12"
           /> :
           <Image
           src="/astrox.webp"
@@ -88,10 +88,10 @@ export default function Home() {
           width={380}
           height={370}
           priority
-          className="rounded-full shadow-yellow-400 shadow-lg mx-auto  mb-4 lg:mb-10"
+          className="rounded-full shadow-gray-200 shadow-lg mx-auto  mb-4 lg:mb-10 delay-75 duration-300 ease-in-out transform hover:-rotate-12"
         />
         }
-        <h2 className="block bg-gradient-to-r from-yellow-400 to-yellow-800 bg-clip-text py-5 text-3xl lg:text-8xl text-transparent">
+        <h2 className="block bg-gradient-to-r from-gray-200 to-sky-600 uppercase bg-clip-text py-5 text-3xl lg:text-8xl text-transparent">
           Nicola Solazzo
         </h2>
         <p className="text-xl lg:text-3xl">{subtitle[local as keyof typeof subtitle]}</p>
