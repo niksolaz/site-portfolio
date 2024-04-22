@@ -35,7 +35,7 @@ const About = ({local}: {local: string}) => {
           width={300}
           height={185}
           priority
-          className="hidden lg:block rounded-full shadow-gray-200 shadow-lg mx-auto  mb-4 lg:mb-10"
+          className="hidden lg:block rounded-full shadow-gray-200 shadow-lg mx-auto  mb-4 lg:mb-10 delay-75 duration-300 ease-in-out transform hover:rotate-12"
         />
       </div>
       <div className="flex flex-wrap lg:flex-nowrap items-center justify-center lg:justify-between lg:space-x-10 space-y-10 lg:space-y-0">
@@ -45,7 +45,7 @@ const About = ({local}: {local: string}) => {
           width={300}
           height={185}
           priority
-          className="rounded-full shadow-gray-200 shadow-lg mx-auto  mb-4 lg:mb-10"
+          className="rounded-full shadow-gray-200 shadow-lg mx-auto  mb-4 lg:mb-10 delay-75 duration-300 ease-in-out transform hover:-rotate-12"
         />
        <span className="text-justify mx-auto">
         <a className="font-bold cursor-pointer" href="/contact">{ about[local as keyof AboutObject].link }</a> { about[local as keyof AboutObject].textLink }

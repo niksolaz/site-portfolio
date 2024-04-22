@@ -96,11 +96,21 @@ export default function Home() {
         </h2>
         <p className="text-xl lg:text-3xl">{subtitle[local as keyof typeof subtitle]}</p>
       </section>
-      <section className="mx-auto flex flex-wrap items-center justify-center gap-y-4 py-10 lg:grid lg:grid-cols-3 lg:gap-3">
+      <section className="mx-auto flex flex-wrap items-center justify-center gap-y-4 py-10 lg:grid lg:grid-cols-3 lg:gap-6">
         {listCard.map((card, index) => {
-          return (
-            <Card key={index} title={card.title} text={card.text} />
-          );
+          if(index % 2 === 0) {
+            return (
+              <div key={index} className="scale-75 lg:scale-100 delay-75 duration-300 ease-in-out transform rotate-3 hover:rotate-0 hover:scale-100 lg:hover:scale-125">
+                <Card title={card.title} text={card.text} />
+              </div>
+            );
+          } else {
+            return (
+              <div key={index} className="scale-75 lg:scale-100 delay-75 duration-300 ease-in-out transform -rotate-3 hover:rotate-0 hover:scale-100 lg:hover:scale-125">
+                <Card title={card.title} text={card.text} />
+              </div>
+            );
+          }
         })}
       </section>
       <section className="container py-10 w-full">
