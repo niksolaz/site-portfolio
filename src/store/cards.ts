@@ -13,11 +13,11 @@ export const cards = {
   it: [
     {
       title: "Frontend",
-      text: "Design di interfacce utente e user experience, sviluppate con Vue.js, React.js, TailwindCSS, Bootstrap, Material-UI, SASS, CSS3, HTML5",
+      text: "Design di interfacce utente e user experience, sviluppate con Vue.js, Nuxt 3, React.js, Next.js, TailwindCSS, Bootstrap, Material-UI, SASS, CSS3, HTML5",
     },
     {
       title: "Backend",
-      text: "Sviluppo di backend con Node.js, Express.js, MongoDB, MySQL, PostgreSQL, Firebase, GraphQL, REST API",
+      text: "Sviluppo di backend con Node.js, Express.js, Elixir, Phoenix, MongoDB, MySQL, PostgreSQL, Firebase, GraphQL, REST API, Supabase",
     },
     {
       title: "Integrazioni Api",
@@ -33,17 +33,17 @@ export const cards = {
     },
     {
       title: "Strumenti di sviluppo",
-      text: "Utilizzo di strumenti di sviluppo come Git, GitHub, VS Code, Slack, Monday, Docker, ecc.",
+      text: "Utilizzo di strumenti di sviluppo come Git, GitHub, VS Code, Slack, Monday, Docker, Cursor,ecc.",
     }
   ],
   en: [
     {
       title: "Frontend",
-      text: "User interface design and user experience, developed with Vue.js, React.js, TailwindCSS, Bootstrap, Material-UI, SASS, CSS3, HTML5",
+      text: "User interface design and user experience, developed with Vue.js, Nuxt 3, React.js, Next.js, TailwindCSS, Bootstrap, Material-UI, SASS, CSS3, HTML5",
     },
     {
       title: "Backend",
-      text: "Backend development with Node.js, Express.js, MongoDB, MySQL, PostgreSQL, Firebase, GraphQL, REST API",
+      text: "Backend development with Node.js, Express.js, Elixir, Phoenix, MongoDB, MySQL, PostgreSQL, Firebase, GraphQL, REST API, Supabase",
     },
     {
       title: "Api Integrations",
@@ -59,17 +59,17 @@ export const cards = {
     },
     {
       title: "Development tools",
-      text: "Use of development tools such as Git, GitHub, VS Code, Slack, Monday, Docker, etc.",
+      text: "Use of development tools such as Git, GitHub, VS Code, Slack, Monday, Docker, Cursor, etc.",
     }
   ],
   es: [
     {
       title: "Frontend",
-      text: "Diseño de interfaz de usuario y experiencia de usuario, desarrollado con Vue.js, React.js, TailwindCSS, Bootstrap, Material-UI, SASS, CSS3, HTML5",
+      text: "Diseño de interfaz de usuario y experiencia de usuario, desarrollado con Vue.js, Nuxt 3, React.js, Next.js, TailwindCSS, Bootstrap, Material-UI, SASS, CSS3, HTML5",
     },
     {
       title: "Backend",
-      text: "Desarrollo de backend con Node.js, Express.js, MongoDB, MySQL, PostgreSQL, Firebase, GraphQL, REST API",
+      text: "Desarrollo de backend con Node.js, Express.js, Elixir, Phoenix, MongoDB, MySQL, PostgreSQL, Firebase, GraphQL, REST API, Supabase",
     },
     {
       title: "Integraciones de API",
@@ -85,7 +85,7 @@ export const cards = {
     },
     {
       title: "Herramientas de desarrollo",
-      text: "Uso de herramientas de desarrollo como Git, GitHub, VS Code, Slack, Monday, Docker, etc.",
+      text: "Uso de herramientas de desarrollo como Git, GitHub, VS Code, Slack, Monday, Docker, Cursor, etc.",
     }
   ]
 }
