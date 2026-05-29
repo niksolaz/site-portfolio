@@ -8,6 +8,7 @@ interface AboutObject {
   it: AboutState;
   en: AboutState;
   es: AboutState;
+  fr: AboutState;
 }  
 
 export const about: AboutObject = {
@@ -52,6 +53,19 @@ export const about: AboutObject = {
     `,
     link: 'Contáctame',
     textLink:` si también crees que la programación es un arte`
+  },
+  fr: {
+    main: `
+    Je suis Nicola Solazzo, un développeur passionné avec un regard attentif sur le frontend et un intérêt croissant pour le backend.
+    Grâce à mon expérience avec Vue.js, React et l'exploration du côté serveur avec Node.js,
+    je cherche à pousser les limites de la création numérique.
+    Au fil du temps, j'ai approché la programmation fonctionnelle avec Elixir et Phoenix.
+    Ma passion pour la programmation m'a conduit à créer des applications web et de bureau, et je suis toujours à la recherche de nouveaux projets et défis.
+    Je pense que la programmation est un art et je cherche à créer des applications qui ne soient pas seulement fonctionnelles,
+    mais aussi belles et intuitives.
+    `,
+    link: 'Contactez-moi',
+    textLink:` si vous aussi pensez que la programmation est un art`
   }
 }
   

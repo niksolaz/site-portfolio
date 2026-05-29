@@ -26,31 +26,36 @@ export default function Contact() {
   
   const { alert, showAlert, hideAlert } = useAlert()
 
-  const localLink: {en: string, it: string, es: string} = {
+  const localLink: {en: string, it: string, es: string, fr: string} = {
     en: 'CONTACT ME',
     it: 'CONTATTAMI',
-    es: 'CONTACTAME'
+    es: 'CONTACTAME',
+    fr: 'CONTACTEZ-MOI'
   }
 
-  const preTitle: {en: string, it: string, es: string} = {
+  const preTitle: {en: string, it: string, es: string, fr: string} = {
     en: 'Write me for info and I will reply as soon as possible ...',
     it: 'Scrivimi per info e ti risponderò al più presto ... ',
-    es: 'Escríbeme para obtener información y te responderé lo antes posible ...'
+    es: 'Escríbeme para obtener información y te responderé lo antes posible ...',
+    fr: 'Écrivez-moi pour obtenir des informations et je vous répondrai dès que possible ...'
+
   }
 
-  const endTitle: {en: string, it: string, es: string} = {
+  const endTitle: {en: string, it: string, es: string, fr: string} = {
     en: '... or contact me on Linkedin',
     it: '... oppure contattami su Linkedin',
-    es: '... o contáctame en Linkedin'
+    es: '... o contáctame en Linkedin',
+    fr: '... ou contactez-moi sur Linkedin'
   }
 
-  const btnSend: {en: string, it: string, es: string} = {
+  const btnSend: {en: string, it: string, es: string, fr: string} = {
     en: 'SEND',
     it: 'INVIA',
-    es: 'ENVIAR'
+    es: 'ENVIAR',
+    fr: 'ENVOYER'
   }
 
-  const formLabel: {en: IForm, it: IForm, es: IForm} = {
+  const formLabel: {en: IForm, it: IForm, es: IForm, fr: IForm} = {
     en: {
       name: 'Your Name',
       email: 'Your Email',
@@ -74,6 +79,14 @@ export default function Contact() {
       placeholderName: 'Juan Pérez',
       placeholderEmail: 'email@ejemplo.com',
       placeholderMessage: 'déjame saber cómo puedo ayudarte'
+    },
+    fr: {
+      name: 'Votre Nom',
+      email: 'Votre Email',
+      message: 'Votre Message',
+      placeholderName: 'Jean Dupont',
+      placeholderEmail: 'email@exemple.com',
+      placeholderMessage: 'faites-moi savoir comment je peux vous aider'
     }
   }
 
@@ -161,6 +174,7 @@ export default function Contact() {
             <option value="en">EN</option>
             <option value="it">IT</option>
             <option value="es">ES</option>
+            <option value="fr">FR</option>
           </select>
         </div>
          {alert.show && <Alert {...alert} />}

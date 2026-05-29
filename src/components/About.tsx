@@ -12,6 +12,7 @@ interface AboutObject {
   it: AboutState;
   en: AboutState;
   es: AboutState;
+  fr: AboutState;
 }  
 
 

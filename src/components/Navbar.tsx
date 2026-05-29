@@ -3,10 +3,11 @@ import Link from 'next/link'
 import React from 'react'
 
 const Navbar = ({local}: {local: string}) => {
-  const localLink: {en: string, it: string, es: string} = {
+  const localLink: {en: string, it: string, es: string, fr: string} = {
     en: 'CONTACT ME',
     it: 'CONTATTAMI',
-    es: 'CONTACTAME'
+    es: 'CONTACTAME',
+    fr: 'CONTACTEZ-MOI'
   }
   return (
     <>

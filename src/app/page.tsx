@@ -12,16 +12,18 @@ export default function Home() {
   const [theme, setTheme] = useState(false)
   const [local, setLocal] = useState('en')
 
-  const subtitle: {en: string, it: string, es: string} = {
+  const subtitle: {en: string, it: string, es: string, fr: string} = {
     en: "Like an astronaut in the digital universe, I explore the frontiers of development with boldness and creativity.",
     it: "Come un astronauta nell'universo digitale, esploro le frontiere dello sviluppo con audacia e creatività.",
-    es: "Como un astronauta en el universo digital, explorar las fronteras del desarrollo con audacia y creatividad."
+    es: "Como un astronauta en el universo digital, explorar las fronteras del desarrollo con audacia y creatividad.",
+    fr: "Comme un astronaute dans l'univers numérique, je explore les frontières du développement avec audace et créativité."
   }
 
-  const localLink: {en: string, it: string, es: string} = {
+  const localLink: {en: string, it: string, es: string, fr: string} = {
     en: 'CONTACT ME',
     it: 'CONTATTAMI',
-    es: 'CONTACTAME'
+    es: 'CONTACTAME',
+    fr: 'CONTACTEZ-MOI'
   }
 
   useEffect(() => {
@@ -70,6 +72,7 @@ export default function Home() {
           <option value="en">EN</option>
           <option value="it">IT</option>
           <option value="es">ES</option>
+          <option value="fr">FR</option>
         </select>
       </div>
       <section className="pt-20 pb-0 lg:py-40 text-center">

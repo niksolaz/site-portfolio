@@ -7,6 +7,7 @@ interface CardTongue {
   it: Card[];
   en: Card[];
   es: Card[];
+  fr: Card[];
 }
 
 export const cards = {
@@ -86,6 +87,32 @@ export const cards = {
     {
       title: "Herramientas de desarrollo",
       text: "Uso de herramientas de desarrollo como Git, GitHub, VS Code, Slack, Monday, Docker, Cursor, etc.",
+    }
+  ],
+  fr: [
+    {
+      title: "Frontend",
+      text: "Design de l'interface utilisateur et expérience utilisateur, développé avec Vue.js, Nuxt 3, React.js, Next.js, TailwindCSS, Bootstrap, Material-UI, SASS, CSS3, HTML5",
+    },
+    {
+      title: "Backend",
+      text: "Développement de backend avec Node.js, Express.js, Elixir, Phoenix, MongoDB, MySQL, PostgreSQL, Firebase, GraphQL, REST API, Supabase",
+    },
+    {
+      title: "Intégrations API",
+      text: "Développement d'applications avec APIs de tiers, comme Google Maps, Stripe, Twilio, SendGrid, OpenWeatherMap, etc.",
+    },
+    {
+      title: "Type de projets",
+      text: "Développement de sites web, applications web, applications de bureau, applications web progressives, applications mobiles, etc.",
+    },
+    {
+      title: "Gestion",
+      text: "Gestion de projets avec des méthodologies agiles, comme Scrum, Kanban, Lean, etc.",
+    },
+    {
+      title: "Outils de développement",
+      text: "Utilisation d'outils de développement comme Git, GitHub, VS Code, Slack, Monday, Docker, Cursor, etc.",
     }
   ]
 }
