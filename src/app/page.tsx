@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar'
 import Card from '../components/Card'
 import About from '../components/About'
 import ThemeControls from '../components/ThemeControls'
-import Astronaut3D from '../components/Astronaut3D'
+import Hero3D from '../components/Hero3D'
 import useTheme from '../hooks/useTheme'
 import useLocale from '../hooks/useLocale'
 import { store } from '../store/store'
@@ -24,11 +24,11 @@ export default function Home() {
         <ThemeControls local={local} theme={theme} onThemeToggle={toggleTheme} onLocaleChange={changeLocale} />
 
         <section className="pt-20 pb-0 lg:py-40 text-center">
-          <Astronaut3D theme={theme} />
-          <h2 className="block bg-gradient-to-r from-gray-200 to-sky-600 uppercase bg-clip-text py-5 text-3xl lg:text-8xl text-transparent">
+          <Hero3D theme={theme} />
+          <h2 className="relative z-10 block bg-gradient-to-r from-white via-sky-200 to-sky-500 bg-clip-text py-5 text-4xl font-extrabold uppercase tracking-tight text-transparent drop-shadow-[0_2px_18px_rgba(56,189,248,0.35)] lg:text-8xl">
             Nicola Solazzo
           </h2>
-          <p className="text-xl lg:text-3xl">{subtitle}</p>
+          <p className="relative z-10 text-xl font-medium lg:text-3xl">{subtitle}</p>
         </section>
 
         <section className="mx-auto flex flex-wrap items-center justify-center gap-y-4 py-10 lg:grid lg:grid-cols-3 lg:gap-6">

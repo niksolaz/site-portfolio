@@ -24,7 +24,7 @@ export default function Contact() {
 
   const { local, changeLocale } = useLocale()
   const { alert, showAlert, hideAlert } = useAlert()
-  const { toggleTheme } = useTheme()
+  const { theme, toggleTheme } = useTheme()
 
   const labels = store.i18n.contactFormLabels[local]
   const contactLink = store.i18n.navContactLink[local]
@@ -66,7 +66,7 @@ export default function Contact() {
     <>
       <main className="flex min-h-screen flex-col items-center justify-between p-5 lg:p-24">
         <Navbar local={local} />
-        <ThemeControls local={local} onThemeToggle={toggleTheme} onLocaleChange={changeLocale} />
+        <ThemeControls local={local} theme={theme} onThemeToggle={toggleTheme} onLocaleChange={changeLocale} />
 
         {alert.show && <Alert {...alert} />}
 
