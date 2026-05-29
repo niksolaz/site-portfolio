@@ -60,3 +60,25 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Effetto 3D astronauta: leggera fluttuazione continua */
+.astro3d-float {
+  animation: astro3d-floating 6s ease-in-out infinite;
+}
+
+@keyframes astro3d-floating {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -14px;
+  }
+}
+
+/* Rispetta le preferenze di accessibilità: niente animazioni se richiesto */
+@media (prefers-reduced-motion: reduce) {
+  .astro3d-float {
+    animation: none;
+  }
+}

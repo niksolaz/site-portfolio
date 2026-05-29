@@ -1,10 +1,10 @@
 'use client'
-import Image from 'next/image'
 import Link from 'next/link'
 import Navbar from '../components/Navbar'
 import Card from '../components/Card'
 import About from '../components/About'
 import ThemeControls from '../components/ThemeControls'
+import Astronaut3D from '../components/Astronaut3D'
 import useTheme from '../hooks/useTheme'
 import useLocale from '../hooks/useLocale'
 import { store } from '../store/store'
@@ -24,14 +24,7 @@ export default function Home() {
         <ThemeControls local={local} theme={theme} onThemeToggle={toggleTheme} onLocaleChange={changeLocale} />
 
         <section className="pt-20 pb-0 lg:py-40 text-center">
-          <Image
-            src={theme ? '/astrox-sun.webp' : '/astrox.webp'}
-            alt="Astronaut Hero Image"
-            width={380}
-            height={370}
-            priority
-            className={`rounded-full shadow-gray-200 shadow-lg mx-auto mb-4 lg:mb-10 delay-75 duration-300 ease-in-out transform ${theme ? 'hover:rotate-12' : 'hover:-rotate-12'}`}
-          />
+          <Astronaut3D theme={theme} />
           <h2 className="block bg-gradient-to-r from-gray-200 to-sky-600 uppercase bg-clip-text py-5 text-3xl lg:text-8xl text-transparent">
             Nicola Solazzo
           </h2>
