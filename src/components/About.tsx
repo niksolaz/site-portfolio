@@ -1,23 +1,14 @@
-import React from 'react'
-import Image from "next/image";
-import {store}  from "../store/store";
+import Image from 'next/image'
+import { store } from '../store/store'
+import type { Locale } from '../types'
 
-interface AboutState {
-  main: string;
-  link: string;
-  textLink: string;
-}  
+interface AboutProps {
+  local: Locale
+}
 
-interface AboutObject {
-  it: AboutState;
-  en: AboutState;
-  es: AboutState;
-  fr: AboutState;
-}  
+const About = ({ local }: AboutProps) => {
+  const about = store.about[local]
 
-
-const About = ({local}: {local: string}) => {
-  const about:AboutObject = store.about
   return (
     <div className="flex flex-wrap items-center justify-center space-y-20">
       <div className="relative flex flex-wrap lg:flex-nowrap items-center justify-center lg:justify-between lg:space-x-10 space-y-10 lg:space-y-0">
@@ -27,16 +18,16 @@ const About = ({local}: {local: string}) => {
           width={300}
           height={185}
           priority
-          className="block lg:hidden rounded-full shadow-yellow-400 shadow-lg mx-auto  mb-4 lg:mb-10"
+          className="block lg:hidden rounded-full shadow-yellow-400 shadow-lg mx-auto mb-4 lg:mb-10"
         />
-       <span className="text-justify mx-auto">{ about[local as keyof AboutObject].main }</span>
-       <Image
+        <span className="text-justify mx-auto">{about.main}</span>
+        <Image
           src="/skills.webp"
           alt="Astronaut Hero Image skills"
           width={300}
           height={185}
           priority
-          className="hidden lg:block rounded-full shadow-gray-200 shadow-lg mx-auto  mb-4 lg:mb-10 delay-75 duration-300 ease-in-out transform hover:rotate-12"
+          className="hidden lg:block rounded-full shadow-gray-200 shadow-lg mx-auto mb-4 lg:mb-10 delay-75 duration-300 ease-in-out transform hover:rotate-12"
         />
       </div>
       <div className="flex flex-wrap lg:flex-nowrap items-center justify-center lg:justify-between lg:space-x-10 space-y-10 lg:space-y-0">
@@ -46,11 +37,12 @@ const About = ({local}: {local: string}) => {
           width={300}
           height={185}
           priority
-          className="rounded-full shadow-gray-200 shadow-lg mx-auto  mb-4 lg:mb-10 delay-75 duration-300 ease-in-out transform hover:-rotate-12"
+          className="rounded-full shadow-gray-200 shadow-lg mx-auto mb-4 lg:mb-10 delay-75 duration-300 ease-in-out transform hover:-rotate-12"
         />
-       <span className="text-justify mx-auto">
-        <a className="font-bold cursor-pointer" href="/contact">{ about[local as keyof AboutObject].link }</a> { about[local as keyof AboutObject].textLink }
-       </span>
+        <span className="text-justify mx-auto">
+          <a className="font-bold border border-gray-200 hover:text-sky-600 hover:border-sky-600 rounded-lg px-4 py-2 cursor-pointer" href="/contact">{about.link}</a>
+          {about.textLink}
+        </span>
       </div>
     </div>
   )

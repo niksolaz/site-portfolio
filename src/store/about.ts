@@ -1,18 +1,12 @@
-interface AboutState {
-  main: string;
-  link: string;
-  textLink: string;
-}  
+import type { LocaleMap } from '../types'
 
-interface AboutObject {
-  it: AboutState;
-  en: AboutState;
-  es: AboutState;
-  fr: AboutState;
-}  
+export interface AboutEntry {
+  main: string
+  link: string
+  textLink: string
+}
 
-export const about: AboutObject = {
-
+export const about: LocaleMap<AboutEntry> = {
   it: {
     main: `
     Sono Nicola Solazzo, un appassionato sviluppatore con un occhio attento al frontend e un interesse crescente nel backend. 
@@ -25,7 +19,7 @@ export const about: AboutObject = {
     ma anche belle e intuitive. 
     `,
     link: 'Contattami',
-    textLink:`  se anche tu come me credi che la programmazione sia un'arte`
+    textLink: `  se anche tu come me credi che la programmazione sia un'arte`,
   },
   en: {
     main: `
@@ -39,7 +33,7 @@ export const about: AboutObject = {
     but also beautiful and intuitive.
     `,
     link: 'Contact me',
-    textLink:` if you also believe that programming is an art`
+    textLink: ` if you also believe that programming is an art`,
   },
   es: {
     main: `
@@ -52,7 +46,7 @@ export const about: AboutObject = {
     sino también hermosas e intuitivas.
     `,
     link: 'Contáctame',
-    textLink:` si también crees que la programación es un arte`
+    textLink: ` si también crees que la programación es un arte`,
   },
   fr: {
     main: `
@@ -65,8 +59,6 @@ export const about: AboutObject = {
     mais aussi belles et intuitives.
     `,
     link: 'Contactez-moi',
-    textLink:` si vous aussi pensez que la programmation est un art`
-  }
+    textLink: ` si vous aussi pensez que la programmation est un art`,
+  },
 }
-  
-
