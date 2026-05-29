@@ -6,6 +6,8 @@ import { Environment, ContactShadows, Lightformer, useGLTF } from '@react-three/
 
 type HeroSceneProps = {
   theme: boolean
+  open: boolean
+  onToggle: () => void
 }
 
 const MODEL_URL = '/mac-draco.glb'
@@ -187,9 +189,7 @@ function Laptop({ open }: { open: boolean }) {
 
 useGLTF.preload(MODEL_URL)
 
-export default function HeroScene({ theme }: HeroSceneProps) {
-  const [open, setOpen] = useState(false)
-
+export default function HeroScene({ theme, open, onToggle }: HeroSceneProps) {
   // Forza una nuova misura del canvas dopo il montaggio (evita il canvas a 300x150).
   useEffect(() => {
     const id = setTimeout(() => window.dispatchEvent(new Event('resize')), 60)
@@ -206,7 +206,7 @@ export default function HeroScene({ theme }: HeroSceneProps) {
             rotation={[0, Math.PI, 0]}
             onClick={(e) => {
               e.stopPropagation()
-              setOpen((v) => !v)
+              onToggle()
             }}
           >
             <Laptop open={open} />
