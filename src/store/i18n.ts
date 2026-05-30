@@ -56,10 +56,10 @@ export const navMenu: LocaleMap<NavMenuLabels> = {
 }
 
 export const homeSubtitle: LocaleMap<string> = {
-  en: 'Like an astronaut in the digital universe, I explore the frontiers of development with boldness and creativity.',
-  it: "Come un astronauta nell'universo digitale, esploro le frontiere dello sviluppo con audacia e creatività.",
-  es: 'Como un astronauta en el universo digital, explorar las fronteras del desarrollo con audacia y creatividad.',
-  fr: "Comme un astronaute dans l'univers numérique, je explore les frontières du développement avec audace et créativité.",
+  en: 'Translating complex visions into solid, fast, and scalable JavaScript applications.',
+  it: "Traduco visioni complesse in applicazioni JavaScript solide, veloci e pronte a scalare.",
+  es: 'Traduzco visiones complejas en aplicaciones JavaScript sólidas, rápidas y listas para escalar.',
+  fr: "Je traduis des visions complexes en applications JavaScript solides, rapides et évolutives.",
 }
 
 export const contactPreTitle: LocaleMap<string> = {
