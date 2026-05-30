@@ -7,9 +7,9 @@ interface CardProps {
 
 const Card = ({title, text}: CardProps) => {
   return (
-    <div className="p-5 border border-b-4 border-r-4 border-gray-200 rounded-lg w-72 min-h-56 space-y-4">
-        <h2 className="text-center font-bold text-xl bg-gradient-to-r from-yellow-600 to-gray-400 bg-clip-text">{title}</h2>
-        <p>{text}</p>
+    <div className="p-5 bg-white/60 border border-b-4 border-r-4 border-primary/20 rounded-lg w-72 min-h-56 space-y-4 shadow-sm transition-shadow duration-300 hover:shadow-md">
+        <h2 className="text-center font-bold text-xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{title}</h2>
+        <p className="text-ink/80">{text}</p>
     </div>
   )
 }

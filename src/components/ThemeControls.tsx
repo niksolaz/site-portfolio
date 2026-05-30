@@ -30,7 +30,7 @@ const ThemeControls = ({ local, theme, onThemeToggle, onLocaleChange }: ThemeCon
       <select
         value={local}
         onChange={(e) => onLocaleChange(e.target.value as Locale)}
-        className="text-xs text-gray-200 lg:h-8 lg:text-sm border border-gray-200 p-1 bg-transparent rounded-lg"
+        className="text-xs text-ink lg:h-8 lg:text-sm border border-primary/30 p-1 bg-white/60 rounded-lg"
         aria-label="Select language"
       >
         <option value="en">EN</option>

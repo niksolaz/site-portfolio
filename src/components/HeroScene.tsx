@@ -246,8 +246,8 @@ export default function HeroScene({ theme, open, onToggle }: HeroSceneProps) {
               fontSize: '52px',
               fontWeight: 400,
               letterSpacing: '-0.045em',
-              color: '#e6edf6',
-              opacity: 0.45,
+              color: '#004d4d',
+              opacity: 0.55,
               userSelect: 'none',
             }}
           >
