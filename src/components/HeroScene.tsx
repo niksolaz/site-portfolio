@@ -5,7 +5,6 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { Environment, ContactShadows, Lightformer, useGLTF } from '@react-three/drei'
 
 type HeroSceneProps = {
-  theme: boolean
   open: boolean
   onToggle: () => void
 }
@@ -189,7 +188,7 @@ function Laptop({ open }: { open: boolean }) {
 
 useGLTF.preload(MODEL_URL)
 
-export default function HeroScene({ theme, open, onToggle }: HeroSceneProps) {
+export default function HeroScene({ open, onToggle }: HeroSceneProps) {
   // Forza una nuova misura del canvas dopo il montaggio (evita il canvas a 300x150).
   useEffect(() => {
     const id = setTimeout(() => window.dispatchEvent(new Event('resize')), 60)
@@ -210,7 +209,7 @@ export default function HeroScene({ theme, open, onToggle }: HeroSceneProps) {
       onToggle()
     }}>
       <Canvas dpr={[1, 2]} camera={{ position: [0, 0, -30], fov: 35 }} gl={{ alpha: true }}>
-        <ambientLight intensity={theme ? 0.6 : 0.35} />
+        <ambientLight intensity={0.6} />
         <pointLight position={[10, 10, 10]} intensity={1.5} />
         <Suspense fallback={null}>
           <group

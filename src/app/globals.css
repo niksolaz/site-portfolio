@@ -17,9 +17,21 @@
   --color-ink: oklch(0.27 0.04 240);
 }
 
+html {
+  /* Scorrimento morbido quando si clicca su un link del menu (#hero, #cards, ...) */
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-base);
   color: var(--color-ink);
+}
+
+/* Le sezioni con id mantengono uno spazio in alto per non finire
+   sotto la navbar fissa quando si arriva via ancora. */
+section[id],
+footer[id] {
+  scroll-margin-top: 6rem;
 }
 
 /* Pulsante d'azione (CTA): ambra caldo su testo scuro */

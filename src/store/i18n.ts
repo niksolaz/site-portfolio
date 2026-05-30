@@ -9,11 +9,50 @@ export interface FormLabels {
   placeholderMessage: string
 }
 
+export interface NavMenuLabels {
+  navbar: string
+  hero: string
+  cards: string
+  about: string
+  footer: string
+}
+
 export const navContactLink: LocaleMap<string> = {
   en: 'CONTACT ME',
   it: 'CONTATTAMI',
   es: 'CONTACTAME',
   fr: 'CONTACTEZ-MOI',
+}
+
+export const navMenu: LocaleMap<NavMenuLabels> = {
+  en: {
+    navbar: 'Top',
+    hero: 'Intro',
+    cards: 'Projects',
+    about: 'About',
+    footer: 'Contact',
+  },
+  it: {
+    navbar: 'Inizio',
+    hero: 'Intro',
+    cards: 'Progetti',
+    about: 'Chi sono',
+    footer: 'Contatti',
+  },
+  es: {
+    navbar: 'Inicio',
+    hero: 'Intro',
+    cards: 'Proyectos',
+    about: 'Sobre mí',
+    footer: 'Contacto',
+  },
+  fr: {
+    navbar: 'Accueil',
+    hero: 'Intro',
+    cards: 'Projets',
+    about: 'À propos',
+    footer: 'Contact',
+  },
 }
 
 export const homeSubtitle: LocaleMap<string> = {

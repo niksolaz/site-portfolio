@@ -1,18 +1,17 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
-import Link from 'next/link'
 import Navbar from '../components/Navbar'
 import Card from '../components/Card'
 import About from '../components/About'
+import Contact from '../components/Contact'
 import ThemeControls from '../components/ThemeControls'
 import Hero3D from '../components/Hero3D'
-import useTheme from '../hooks/useTheme'
 import useLocale from '../hooks/useLocale'
 import { store } from '../store/store'
 
 export default function Home() {
   const { local, changeLocale } = useLocale()
-  const { theme, toggleTheme } = useTheme()
+
 
   const listCard = store.cards[local]
   const subtitle = store.i18n.homeSubtitle[local]
@@ -44,11 +43,14 @@ export default function Home() {
   return (
     <>
       <main className="relative min-h-screen">
-        <Navbar local={local} />
-        <ThemeControls local={local} theme={theme} onThemeToggle={toggleTheme} onLocaleChange={changeLocale} />
+        <section id="navbar" className="px-5 lg:px-24">
+          <Navbar local={local}>
+            <ThemeControls local={local} onLocaleChange={changeLocale} />
+          </Navbar>
+        </section>
 
-        <section id="#hero" className="lg:py-56 py-20 text-center px-5 lg:px-24">
-          <Hero3D theme={theme} open={laptopOpen} onToggle={() => setLaptopOpen((v) => !v)} />
+        <section id="hero" className="lg:py-56 py-20 text-center px-5 lg:px-24">
+          <Hero3D open={laptopOpen} onToggle={() => setLaptopOpen((v) => !v)} />
           <h2
             ref={headingRef}
             className="relative z-10 block bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text py-5 text-4xl font-extrabold uppercase tracking-tight text-transparent drop-shadow-[0_2px_18px_rgba(0,77,77,0.25)] lg:text-8xl"
@@ -58,7 +60,7 @@ export default function Home() {
           <p className="relative z-10 text-xl font-medium text-ink/80 lg:text-3xl">{subtitle}</p>
         </section>
 
-        <section id="#cards" className="px-5 lg:px-24 lg:py-56 py-20  mx-auto flex flex-wrap items-center justify-center gap-y-4 lg:grid lg:grid-cols-3 lg:gap-6">
+        <section id="cards" className="px-5 lg:px-24 lg:py-56 py-20  mx-auto flex flex-wrap items-center justify-center gap-y-4 lg:grid lg:grid-cols-3 lg:gap-6">
           {listCard.map((card, index) => (
             <div
               key={index}
@@ -69,16 +71,20 @@ export default function Home() {
           ))}
         </section>
 
-        <section id="#about" className="px-5 lg:px-24 lg:py-56 py-20 w-full">
+        <section id="about" className="px-5 lg:px-24 lg:py-56 py-20 w-full">
           <About local={local} />
+        </section>
+
+        <section id="contact" className="px-5 lg:px-24 lg:py-56 py-20 w-full">
+          <Contact local={local} />
         </section>
       </main>
 
-      <footer id="#footer-switcher" className="w-full text-center py-4 mt-6 rounded-t-lg">
+      <footer id="footer-switcher" className="w-full text-center py-4 mt-6 rounded-t-lg">
         <p>© 2024 Nicola Solazzo</p>
-        <Link href="/contact" className="text-xs font-medium text-primary hover:text-accent">
+        <a href="#contact" className="text-xs font-medium text-primary hover:text-accent">
           {contactLink}
-        </Link>
+        </a>
       </footer>
     </>
   )
