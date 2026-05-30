@@ -34,13 +34,6 @@ const Navbar = ({ local, children }: NavbarProps) => {
         {/* Slot per i controlli del tema/lingua passati da page.tsx */}
         {children}
 
-        <a
-          href="#contact"
-          className="hidden text-ink/70 hover:text-accent cursor-pointer text-xs sm:inline lg:text-sm"
-        >
-          {store.i18n.navContactLink[local]}
-        </a>
-
         {/* Pulsante hamburger */}
         <button
           type="button"
@@ -48,7 +41,7 @@ const Navbar = ({ local, children }: NavbarProps) => {
           aria-label="Menu"
           aria-expanded={open}
           aria-controls="primary-menu"
-          className="relative flex h-9 w-9 flex-col items-center justify-center gap-1.5 rounded-lg border border-primary/30 bg-white/60 transition-colors hover:border-primary"
+          className="relative flex h-9 w-9 flex-col items-center justify-center gap-1.5 transition-colors hover:border-primary"
         >
           <span
             className={`block h-0.5 w-5 rounded-full bg-primary transition-transform duration-300 ${
