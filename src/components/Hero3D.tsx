@@ -13,7 +13,7 @@ type Hero3DProps = {
 
 export default function Hero3D({ open, onToggle }: Hero3DProps) {
   return (
-    <div className="mx-auto -mb-4 h-[320px] w-full max-w-[1280px] lg:-mb-10 lg:h-[640px]">
+    <div className="mx-auto -mb-4 h-[320px] w-full max-w-[1280px] lg:-mb-10 lg:h-[520px]">
       <HeroScene open={open} onToggle={onToggle} />
     </div>
   )

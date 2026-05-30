@@ -10,11 +10,10 @@ export interface FormLabels {
 }
 
 export interface NavMenuLabels {
-  navbar: string
   hero: string
   cards: string
   about: string
-  footer: string
+  contact: string
 }
 
 export const navContactLink: LocaleMap<string> = {
@@ -26,32 +25,28 @@ export const navContactLink: LocaleMap<string> = {
 
 export const navMenu: LocaleMap<NavMenuLabels> = {
   en: {
-    navbar: 'Top',
     hero: 'Intro',
     cards: 'Projects',
     about: 'About',
-    footer: 'Contact',
+    contact: 'Contact',
   },
   it: {
-    navbar: 'Inizio',
     hero: 'Intro',
     cards: 'Progetti',
     about: 'Chi sono',
-    footer: 'Contatti',
+    contact: 'Contatti',
   },
   es: {
-    navbar: 'Inicio',
     hero: 'Intro',
     cards: 'Proyectos',
     about: 'Sobre mí',
-    footer: 'Contacto',
+    contact: 'Contacto',
   },
   fr: {
-    navbar: 'Accueil',
     hero: 'Intro',
     cards: 'Projets',
     about: 'À propos',
-    footer: 'Contact',
+    contact: 'Contact',
   },
 }
 

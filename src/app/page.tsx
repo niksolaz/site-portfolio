@@ -49,7 +49,7 @@ export default function Home() {
           </Navbar>
         </section>
 
-        <section id="hero" className="lg:py-56 py-20 text-center px-5 lg:px-24">
+        <section id="hero" className="lg:pb-40 py-20 text-center px-5 lg:px-24">
           <Hero3D open={laptopOpen} onToggle={() => setLaptopOpen((v) => !v)} />
           <h2
             ref={headingRef}
@@ -60,7 +60,7 @@ export default function Home() {
           <p className="relative z-10 text-xl font-medium text-ink/80 lg:text-3xl">{subtitle}</p>
         </section>
 
-        <section id="cards" className="px-5 lg:px-24 lg:py-56 py-20  mx-auto flex flex-wrap items-center justify-center gap-y-4 lg:grid lg:grid-cols-3 lg:gap-6">
+        <section id="cards" className="px-5 lg:px-24 lg:py-40 py-20  mx-auto flex flex-wrap items-center justify-center gap-y-4 lg:grid lg:grid-cols-3 lg:gap-6">
           {listCard.map((card, index) => (
             <div
               key={index}
@@ -71,11 +71,11 @@ export default function Home() {
           ))}
         </section>
 
-        <section id="about" className="px-5 lg:px-24 lg:py-56 py-20 w-full">
+        <section id="about" className="px-5 lg:px-24 lg:py-40 py-20 w-full">
           <About local={local} />
         </section>
 
-        <section id="contact" className="px-5 lg:px-24 lg:py-56 py-20 w-full">
+        <section id="contact" className="px-5 lg:px-40 lg:py-32 py-20 w-full">
           <Contact local={local} />
         </section>
       </main>

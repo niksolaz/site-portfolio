@@ -17,11 +17,10 @@ const Navbar = ({ local, children }: NavbarProps) => {
 
   // Le voci del menu: ogni "href" punta all'id della relativa sezione in page.tsx.
   const links = [
-    { href: '#navbar', label: menu.navbar },
     { href: '#hero', label: menu.hero },
     { href: '#cards', label: menu.cards },
     { href: '#about', label: menu.about },
-    { href: '#footer-switcher', label: menu.footer },
+    { href: '#contact', label: menu.contact },
   ]
 
   return (
