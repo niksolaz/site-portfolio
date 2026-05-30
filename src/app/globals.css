@@ -2,57 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  PALETTE COLORI — stile editoriale 2026
+  1. Primary → Deep Teal   : oklch(0.35 0.12 190)  ≈ #004d4d  (colore dominante)
+  2. Accent  → Ambra/Oro    : oklch(0.78 0.19 80)   ≈ #ffb300  (micro-accento / CTA)
+  3. Base    → Crema         : oklch(0.97 0.01 75)   ≈ #f9f6f0  (sfondo caldo)
+  4. Ink     → Slate scuro   : oklch(0.27 0.04 240)  ≈ #1e293b  (testo ad alta leggibilità)
+*/
 :root {
-  --foreground-rgb: 200, 200, 200;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 5, 65, 77;
+  --color-primary: oklch(0.35 0.12 190);
+  --color-primary-light: oklch(0.48 0.11 190);
+  --color-accent: oklch(0.78 0.19 80);
+  --color-base: oklch(0.97 0.01 75);
+  --color-ink: oklch(0.27 0.04 240);
 }
 
-/* Classe per il tema scuro */
-.light-theme {
-  --foreground-rgb: 30, 30, 30;
-  --background-start-rgb: 5, 65, 77;
-  --background-end-rgb: 215, 215, 215;
-}
-
-.footer-light {
-  @apply border-t border-white py-4;
-  --foreground-rgb: 200, 200, 200;
-  --background-start-rgb: 5, 65, 77;
-  --background-end-rgb: 215, 215, 215;
-}
-
-.footer-dark {
-  @apply border-t border-black py-4;
-  --foreground-rgb: 30, 30, 30;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 5, 65, 77;
-}
-
-.input, .textarea {
-  @apply border-2 border-gray-200 rounded-md p-2 text-black w-full;
-}
-
-.btn {
-  @apply p-2 rounded-md w-1/4 font-semibold text-gray-200 bg-gradient-to-r from-sky-900 to-sky-700 shadow-sm shadow-sky-700 focus:shadow-sky-900;
-}
-
-.icon-sun {
-  @apply bg-gray-200 text-transparent rotate-180 delay-75 duration-300 ease-in-out;
-}
-
-.icon-moon {
-  @apply bg-yellow-200 text-transparent rotate-0 delay-75 duration-300 ease-in-out
+html {
+  /* Scorrimento morbido quando si clicca su un link del menu (#hero, #cards, ...) */
+  scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: var(--color-base);
+  color: var(--color-ink);
+}
+
+/* Le sezioni con id mantengono uno spazio in alto per non finire
+   sotto la navbar fissa quando si arriva via ancora. */
+section[id],
+footer[id] {
+  scroll-margin-top: 6rem;
+}
+
+/* Pulsante d'azione (CTA): ambra caldo su testo scuro */
+.cta-button {
+  background-color: var(--color-accent);
+  color: #0d1117;
+}
+
+.cta-button:hover {
+  filter: brightness(1.05);
+}
+
+/* Titolo di sezione (usato nella pagina contatti) */
+.head-text {
+  @apply text-3xl font-black uppercase tracking-tight lg:text-5xl;
+  color: var(--color-primary);
+}
+
+/* Campi del form */
+.input,
+.textarea {
+  @apply w-full rounded-md border-2 p-2;
+  border-color: oklch(0.35 0.12 190 / 0.25);
+  background-color: oklch(1 0 0 / 0.6);
+  color: var(--color-ink);
+}
+
+.input:focus,
+.textarea:focus {
+  @apply outline-none;
+  border-color: var(--color-primary);
+}
+
+/* Pulsante principale del form */
+.btn {
+  @apply w-1/4 rounded-md p-2 font-semibold shadow-sm transition-colors duration-200;
+  background-color: var(--color-primary);
+  color: var(--color-base);
+}
+
+.btn:hover {
+  background-color: var(--color-primary-light);
+}
+
+/* Icone dello switch tema (legacy, mantenute per l'hook useTheme) */
+.icon-sun {
+  @apply rotate-180 bg-gray-200 text-transparent delay-75 duration-300 ease-in-out;
+}
+
+.icon-moon {
+  @apply rotate-0 bg-yellow-200 text-transparent delay-75 duration-300 ease-in-out;
 }
 
 @layer utilities {

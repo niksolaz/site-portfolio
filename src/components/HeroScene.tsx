@@ -5,7 +5,6 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { Environment, ContactShadows, Lightformer, useGLTF } from '@react-three/drei'
 
 type HeroSceneProps = {
-  theme: boolean
   open: boolean
   onToggle: () => void
 }
@@ -48,7 +47,7 @@ const CODE: Tok[][] = [
 ]
 
 function makeCodeTexture(): THREE.CanvasTexture {
-  const w = 1024
+  const w = 1280
   const h = 640
   const canvas = document.createElement('canvas')
   canvas.width = w
@@ -189,7 +188,7 @@ function Laptop({ open }: { open: boolean }) {
 
 useGLTF.preload(MODEL_URL)
 
-export default function HeroScene({ theme, open, onToggle }: HeroSceneProps) {
+export default function HeroScene({ open, onToggle }: HeroSceneProps) {
   // Forza una nuova misura del canvas dopo il montaggio (evita il canvas a 300x150).
   useEffect(() => {
     const id = setTimeout(() => window.dispatchEvent(new Event('resize')), 60)
@@ -197,17 +196,24 @@ export default function HeroScene({ theme, open, onToggle }: HeroSceneProps) {
   }, [])
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+    <div 
+    style={{ 
+      position: 'relative', 
+      width: '100%', 
+      height: '100%', 
+      pointerEvents: 'auto',
+      cursor: 'pointer' 
+    }} 
+    onClick={(e) => {
+      e.stopPropagation()
+      onToggle()
+    }}>
       <Canvas dpr={[1, 2]} camera={{ position: [0, 0, -30], fov: 35 }} gl={{ alpha: true }}>
-        <ambientLight intensity={theme ? 0.6 : 0.35} />
+        <ambientLight intensity={0.6} />
         <pointLight position={[10, 10, 10]} intensity={1.5} />
         <Suspense fallback={null}>
           <group
-            rotation={[0, Math.PI, 0]}
-            onClick={(e) => {
-              e.stopPropagation()
-              onToggle()
-            }}
+            rotation={[0, Math.PI, 0]}     
           >
             <Laptop open={open} />
           </group>
@@ -239,12 +245,12 @@ export default function HeroScene({ theme, open, onToggle }: HeroSceneProps) {
               fontSize: '52px',
               fontWeight: 400,
               letterSpacing: '-0.045em',
-              color: '#e6edf6',
-              opacity: 0.45,
+              color: '#004d4d',
+              opacity: 0.55,
               userSelect: 'none',
             }}
           >
-            click
+            Click Laptop
           </span>
         </div>
       )}

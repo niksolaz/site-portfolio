@@ -7,15 +7,14 @@ const HeroScene = dynamic(() => import('./HeroScene'), {
 })
 
 type Hero3DProps = {
-  theme: boolean
   open: boolean
   onToggle: () => void
 }
 
-export default function Hero3D({ theme, open, onToggle }: Hero3DProps) {
+export default function Hero3D({ open, onToggle }: Hero3DProps) {
   return (
-    <div className="mx-auto -mb-4 h-[320px] w-full max-w-[680px] lg:-mb-10 lg:h-[480px]">
-      <HeroScene theme={theme} open={open} onToggle={onToggle} />
+    <div className="mx-auto -mb-4 h-[320px] w-full max-w-[1280px] lg:-mb-10 lg:h-[640px]">
+      <HeroScene open={open} onToggle={onToggle} />
     </div>
   )
 }
