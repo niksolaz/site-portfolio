@@ -47,7 +47,7 @@ export default function Home() {
         <Navbar local={local} />
         <ThemeControls local={local} theme={theme} onThemeToggle={toggleTheme} onLocaleChange={changeLocale} />
 
-        <section className="pt-20 pb-0 lg:py-40 text-center">
+        <section className="pt-20 pb-0 lg:py-52 text-center">
           <Hero3D theme={theme} open={laptopOpen} onToggle={() => setLaptopOpen((v) => !v)} />
           <h2
             ref={headingRef}

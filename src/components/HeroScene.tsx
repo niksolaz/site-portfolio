@@ -48,7 +48,7 @@ const CODE: Tok[][] = [
 ]
 
 function makeCodeTexture(): THREE.CanvasTexture {
-  const w = 1024
+  const w = 1280
   const h = 640
   const canvas = document.createElement('canvas')
   canvas.width = w
@@ -197,17 +197,24 @@ export default function HeroScene({ theme, open, onToggle }: HeroSceneProps) {
   }, [])
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+    <div 
+    style={{ 
+      position: 'relative', 
+      width: '100%', 
+      height: '100%', 
+      pointerEvents: 'auto',
+      cursor: 'pointer' 
+    }} 
+    onClick={(e) => {
+      e.stopPropagation()
+      onToggle()
+    }}>
       <Canvas dpr={[1, 2]} camera={{ position: [0, 0, -30], fov: 35 }} gl={{ alpha: true }}>
         <ambientLight intensity={theme ? 0.6 : 0.35} />
         <pointLight position={[10, 10, 10]} intensity={1.5} />
         <Suspense fallback={null}>
           <group
-            rotation={[0, Math.PI, 0]}
-            onClick={(e) => {
-              e.stopPropagation()
-              onToggle()
-            }}
+            rotation={[0, Math.PI, 0]}     
           >
             <Laptop open={open} />
           </group>
@@ -244,7 +251,7 @@ export default function HeroScene({ theme, open, onToggle }: HeroSceneProps) {
               userSelect: 'none',
             }}
           >
-            click
+            Click Laptop
           </span>
         </div>
       )}
