@@ -66,7 +66,7 @@ export default function Home() {
               key={index}
               className={`scale-75 lg:scale-100 delay-75 duration-300 ease-in-out transform hover:rotate-0 hover:scale-100 lg:hover:scale-125 ${index % 2 === 0 ? 'rotate-3' : '-rotate-3'}`}
             >
-              <Card title={card.title} text={card.text} />
+              <Card title={card.title} text={card.text} index={index} />
             </div>
           ))}
         </section>

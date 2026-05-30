@@ -3,14 +3,29 @@ import React from 'react'
 interface CardProps {
   title: string
   text: string
+  index?: number
 }
 
-const Card = ({title, text}: CardProps) => {
+const Card = ({ title, text, index }: CardProps) => {
   return (
-    <div className="p-5 bg-white/60 border border-b-4 border-r-4 border-primary/20 rounded-lg w-72 min-h-56 space-y-4 shadow-sm transition-shadow duration-300 hover:shadow-md">
-        <h2 className="text-center font-bold text-xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">{title}</h2>
-        <p className="text-ink/80">{text}</p>
-    </div>
+    <article className="group relative flex h-full w-72 min-h-56 flex-col gap-4 overflow-hidden rounded-2xl border border-primary/10 bg-white/70 p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-xl">
+      {/* Barra-accento in alto: nascosta a riposo, si rivela al passaggio del mouse */}
+      <span className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-primary to-accent transition-transform duration-300 ease-out group-hover:scale-x-100" />
+
+      <header className="flex items-baseline justify-between gap-3">
+        <h2 className="text-lg font-bold tracking-tight text-primary">{title}</h2>
+        {typeof index === 'number' && (
+          <span className="font-mono text-sm font-semibold text-accent/90">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+        )}
+      </header>
+
+      {/* Piccolo divisore oro: richiama l'accento usato altrove nel sito */}
+      <span className="h-px w-10 bg-accent/60" />
+
+      <p className="text-sm leading-relaxed text-ink/75">{text}</p>
+    </article>
   )
 }
 
