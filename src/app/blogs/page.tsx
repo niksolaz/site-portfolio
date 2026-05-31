@@ -1,4 +1,12 @@
+import type { Metadata } from 'next';
 import Cardblog from '../../components/Cardblog';
+
+// Pagina ancora in lavorazione (contenuti segnaposto): la escludiamo
+// dall'indicizzazione finche non avra contenuti reali.
+export const metadata: Metadata = {
+  title: 'Blog',
+  robots: { index: false, follow: false },
+};
 
 export default function Blogs() {
     const cards = [

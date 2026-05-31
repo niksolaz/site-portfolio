@@ -51,12 +51,12 @@ export default function Home() {
 
         <section id="hero" className="lg:pb-40 py-20 text-center px-5 lg:px-24">
           <Hero3D open={laptopOpen} onToggle={() => setLaptopOpen((v) => !v)} />
-          <h2
+          <h1
             ref={headingRef}
             className="relative z-10 block bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text py-5 text-4xl font-extrabold uppercase tracking-tight text-transparent drop-shadow-[0_2px_18px_rgba(0,77,77,0.25)] lg:text-8xl"
           >
             Nicola Solazzo
-          </h2>
+          </h1>
           <p className="relative z-10 text-xl font-medium text-ink/80 lg:text-3xl">{subtitle}</p>
         </section>
 

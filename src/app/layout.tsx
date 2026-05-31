@@ -1,10 +1,66 @@
 import type { Metadata } from "next";
-import Head from 'next/head';
-import './globals.css'
+import { siteConfig } from "../lib/seo";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Nicola Solazzo",
-  description: "FULLSTACK DEVELOPER"
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    locale: siteConfig.locale,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 658,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  jobTitle: "Full Stack Developer",
+  description: siteConfig.description,
+  sameAs: [siteConfig.linkedin],
 };
 
 export default function RootLayout({
@@ -14,12 +70,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <title>{metadata.title as string}</title>
-        <meta name="description" content={metadata.description as string}/>
-        <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
-      </Head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </body>
     </html>
   );
 }
