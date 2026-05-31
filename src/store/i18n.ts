@@ -51,10 +51,10 @@ export const navMenu: LocaleMap<NavMenuLabels> = {
 }
 
 export const homeSubtitle: LocaleMap<string> = {
-  en: 'Translating complex visions into solid, fast, and scalable JavaScript applications.',
-  it: "Traduco visioni complesse in applicazioni JavaScript solide, veloci e pronte a scalare.",
-  es: 'Traduzco visiones complejas en aplicaciones JavaScript sólidas, rápidas y listas para escalar.',
-  fr: "Je traduis des visions complexes en applications JavaScript solides, rapides et évolutives.",
+  en: 'Full Stack Consultant for PMI and Startup. Scalable and performant Web App development.',
+  it: "Consulente Full Stack per PMI e Startup. Sviluppo Web App scalabili e performanti.",
+  es: 'Consultor Full Stack para PMI y Startup. Desarrollo de Web App escalables y performantes.',
+  fr: "Consultant Full Stack pour PMI et Startup. Développement de Web App scalables et performants.",
 }
 
 export const contactPreTitle: LocaleMap<string> = {
