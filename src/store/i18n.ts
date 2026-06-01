@@ -78,6 +78,43 @@ export const contactBtnSend: LocaleMap<string> = {
   fr: 'ENVOYER',
 }
 
+export const contactModalTitle: LocaleMap<string> = {
+  en: 'Here is your answer',
+  it: 'Ecco la tua risposta',
+  es: 'Aqui esta tu respuesta',
+  fr: 'Voici votre reponse',
+}
+
+export const contactModalClose: LocaleMap<string> = {
+  en: 'Close',
+  it: 'Chiudi',
+  es: 'Cerrar',
+  fr: 'Fermer',
+}
+
+// Messaggio neutro mostrato quando il messaggio e' classificato come spam (nessuna email inviata).
+export const contactNeutralMessage: LocaleMap<string> = {
+  en: 'Thanks for reaching out.',
+  it: 'Grazie per averci scritto.',
+  es: 'Gracias por escribirnos.',
+  fr: 'Merci de nous avoir contactes.',
+}
+
+// Messaggio di successo quando un lead viene inoltrato via email.
+export const contactSuccessMessage: LocaleMap<string> = {
+  en: 'Message sent successfully',
+  it: 'Messaggio inviato con successo',
+  es: 'Mensaje enviado con exito',
+  fr: 'Message envoye avec succes',
+}
+
+export const contactErrorMessage: LocaleMap<string> = {
+  en: 'An error occurred, please try again later',
+  it: "Si e' verificato un errore, riprova piu' tardi",
+  es: 'Ocurrio un error, intentalo de nuevo mas tarde',
+  fr: "Une erreur s'est produite, veuillez reessayer plus tard",
+}
+
 export const contactFormLabels: LocaleMap<FormLabels> = {
   en: {
     name: 'Your Name',

@@ -3,7 +3,9 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import emailjs from '@emailjs/browser'
 import Alert from './Alert'
+import Modal from './Modal'
 import useAlert from '../hooks/useAlert'
+import useContactAgent from '../hooks/useChat'
 import { store } from '../store/store'
 import type { Locale } from '../types'
 
@@ -23,7 +25,10 @@ const Contact = ({ local }: ContactProps) => {
 
   const [form, setForm] = useState<FormState>({ name: '', email: '', message: '' })
   const [isLoading, setIsLoading] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false)
+  const [modalReply, setModalReply] = useState('')
   const { alert, showAlert, hideAlert } = useAlert()
+  const { analyze } = useContactAgent()
 
   const labels = store.i18n.contactFormLabels[local]
 
@@ -76,45 +81,89 @@ const Contact = ({ local }: ContactProps) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  // Invia il lead via EmailJS per avvisare il proprietario del sito.
+  const notifyOwnerByEmail = () =>
+    emailjs.send(
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+      {
+        from_name: form.name,
+        to_name: 'Nicola',
+        from_email: form.email,
+        to_email: 'solazzo.nicola@gmail.com',
+        message: form.message,
+      },
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+    )
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsLoading(true)
 
-    emailjs
-      .send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        {
-          from_name: form.name,
-          to_name: 'Nicola',
-          from_email: form.email,
-          to_email: 'solazzo.nicola@gmail.com',
-          message: form.message,
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
-      )
-      .then(() => {
-        setIsLoading(false)
-        showAlert({ text: 'Message sent successfully', type: 'success' })
-        setTimeout(() => {
-          hideAlert()
+    try {
+      // 1. L'AI analizza il messaggio e ne determina la categoria.
+      const { category, reply } = await analyze({
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        locale: local,
+      })
+
+      switch (category) {
+        // 2. Richiesta di informazioni: mostra subito la risposta FAQ nel modale.
+        case 'info': {
+          setModalReply(reply || store.i18n.contactNeutralMessage[local])
+          setModalOpen(true)
           setForm({ name: '', email: '', message: '' })
-        }, 3000)
-      })
-      .catch((err) => {
-        setIsLoading(false)
-        console.error(err)
-        showAlert({ text: 'An error occurred, please try again later', type: 'danger' })
-        setTimeout(() => {
-          hideAlert()
-          // setForm({ name: '', email: '', message: '' })
-        }, 3000)
-      })
+          break
+        }
+
+        // 3. Potenziale cliente/collaborazione: avvisa il proprietario via email.
+        case 'lead': {
+          await notifyOwnerByEmail()
+          showAlert({ text: store.i18n.contactSuccessMessage[local], type: 'success' })
+          setTimeout(() => {
+            hideAlert()
+            setForm({ name: '', email: '', message: '' })
+          }, 3000)
+          break
+        }
+
+        // 4. Spam / testo goliardico: non si fa nulla, solo un messaggio neutro.
+        case 'spam':
+        default: {
+          showAlert({ text: store.i18n.contactNeutralMessage[local], type: 'success' })
+          setTimeout(() => {
+            hideAlert()
+            setForm({ name: '', email: '', message: '' })
+          }, 3000)
+          break
+        }
+      }
+    } catch (err) {
+      console.error(err)
+      showAlert({ text: store.i18n.contactErrorMessage[local], type: 'danger' })
+      setTimeout(() => {
+        hideAlert()
+      }, 3000)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
     <div ref={rootRef} className="relative mx-auto w-full max-w-5xl">
       {alert.show && <Alert {...alert} />}
+
+      <Modal
+        open={modalOpen}
+        title={store.i18n.contactModalTitle[local]}
+        closeLabel={store.i18n.contactModalClose[local]}
+        onClose={() => setModalOpen(false)}
+      >
+        {modalReply}
+      </Modal>
+
       <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_280px] lg:gap-14">
         {/* Form di contatto */}
         <div className="order-2 rounded-2xl border border-primary/15 bg-white/60 p-6 backdrop-blur-sm shadow-[0_8px_40px_rgba(0,77,77,0.08)] lg:order-1 lg:p-8">
