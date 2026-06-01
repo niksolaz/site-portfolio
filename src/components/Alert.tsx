@@ -7,7 +7,7 @@ interface AlertProps {
     }
 const Alert = ({type, text, show}: AlertProps) => {
   return (
-    <div className="absolute top-10 left-0 right-0 flex justify-center items-center">
+    <div className="sticky top-20 left-0 right-0 z-50 flex justify-center items-center">
         <div 
             className={`${type === 'danger' ? 'bg-red-800' : 'bg-blue-800'} p-2 text-indigo-100 leading-none z-10 rounded-full flex lg:inline-flex items-center space-x-2`} 
             role="alert"

@@ -105,13 +105,16 @@ const Contact = ({ local }: ContactProps) => {
         setIsLoading(false)
         console.error(err)
         showAlert({ text: 'An error occurred, please try again later', type: 'danger' })
+        setTimeout(() => {
+          hideAlert()
+          // setForm({ name: '', email: '', message: '' })
+        }, 3000)
       })
   }
 
   return (
     <div ref={rootRef} className="relative mx-auto w-full max-w-5xl">
       {alert.show && <Alert {...alert} />}
-
       <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_280px] lg:gap-14">
         {/* Form di contatto */}
         <div className="order-2 rounded-2xl border border-primary/15 bg-white/60 p-6 backdrop-blur-sm shadow-[0_8px_40px_rgba(0,77,77,0.08)] lg:order-1 lg:p-8">
@@ -161,7 +164,6 @@ const Contact = ({ local }: ContactProps) => {
               {isLoading ? 'Sending...' : store.i18n.contactBtnSend[local]}
             </button>
           </form>
-
           <p className="mt-10 text-base text-ink/80 lg:text-lg">{store.i18n.contactEndTitle[local]}</p>
           <div className="py-5">
             <a href="https://www.linkedin.com/in/nicolasolazzo/" target="_blank" rel="noreferrer">
