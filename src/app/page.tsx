@@ -6,6 +6,7 @@ import About from '../components/About'
 import Contact from '../components/Contact'
 import ThemeControls from '../components/ThemeControls'
 import Hero3D from '../components/Hero3D'
+import LegalCenter from '../components/LegalCenter'
 import useLocale from '../hooks/useLocale'
 import { store } from '../store/store'
 
@@ -85,6 +86,7 @@ export default function Home() {
         <a href="#contact" className="text-xs font-medium text-primary hover:text-accent">
           {contactLink}
         </a>
+        <LegalCenter local={local} />
       </footer>
     </>
   )
