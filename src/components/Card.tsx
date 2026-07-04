@@ -8,7 +8,7 @@ interface CardProps {
 
 const Card = ({ title, text, index }: CardProps) => {
   return (
-    <article className="group relative flex h-full w-72 min-h-56 flex-col gap-4 overflow-hidden rounded-2xl border border-primary/10 bg-white/70 p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-xl">
+    <article className="group relative flex h-full w-full max-w-sm min-h-56 flex-col gap-4 overflow-hidden rounded-2xl border border-primary/10 bg-white/70 p-6 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-xl">
       {/* Barra-accento in alto: nascosta a riposo, si rivela al passaggio del mouse */}
       <span className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-primary to-accent transition-transform duration-300 ease-out group-hover:scale-x-100" />
 

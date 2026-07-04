@@ -102,9 +102,8 @@ const Contact = ({ local }: ContactProps) => {
 
     try {
       // 1. L'AI analizza il messaggio e ne determina la categoria.
+      // Data minimization: nome ed email NON vengono inviati all'endpoint AI.
       const { category, reply } = await analyze({
-        name: form.name,
-        email: form.email,
         message: form.message,
         locale: local,
       })
@@ -162,6 +161,10 @@ const Contact = ({ local }: ContactProps) => {
         onClose={() => setModalOpen(false)}
       >
         {modalReply}
+        {/* Trasparenza AI (Art. 50 AI Act): la risposta automatica e' etichettata come generata da AI. */}
+        <span className="mt-4 block border-t border-primary/10 pt-3 text-xs italic text-ink/50">
+          {store.i18n.contactAiReplyLabel[local]}
+        </span>
       </Modal>
 
       <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_280px] lg:gap-14">
@@ -212,6 +215,9 @@ const Contact = ({ local }: ContactProps) => {
             <button type="submit" className="btn" disabled={isLoading}>
               {isLoading ? 'Sending...' : store.i18n.contactBtnSend[local]}
             </button>
+
+            {/* Trasparenza AI (Art. 50 AI Act): informativa chiara prima della prima interazione. */}
+            <p className="text-xs leading-relaxed text-ink/55">{store.i18n.contactAiNotice[local]}</p>
           </form>
           <p className="mt-10 text-base text-ink/80 lg:text-lg">{store.i18n.contactEndTitle[local]}</p>
           <div className="py-5">
