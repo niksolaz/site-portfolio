@@ -5,109 +5,59 @@ export interface Card {
   text: string
 }
 
+// Card servizi orientate al beneficio per il cliente: raccontano il problema
+// risolto, non l'elenco delle tecnologie (lo stack completo vive in /about).
 export const cards: LocaleMap<Card[]> = {
   it: [
     {
-      title: 'Frontend',
-      text: 'Design di interfacce utente e user experience, sviluppate con Vue.js, Nuxt 3, React.js, Next.js, TailwindCSS, Bootstrap, Material-UI, SASS, CSS3, HTML5, con gestione dello stato tramite Pinia o Vuex',
+      title: 'Strumenti su misura',
+      text: 'Web app e gestionali costruiti intorno ai tuoi processi reali, non il contrario: niente funzioni inutili, solo ciò che ti serve per lavorare meglio.',
     },
     {
-      title: 'Backend',
-      text: 'Sviluppo di backend con Node.js, Express.js, Elixir, Phoenix, MongoDB, MySQL, PostgreSQL, Firebase, GraphQL, REST API, Supabase',
+      title: 'Automazione dei processi',
+      text: 'Elimino le attività ripetitive che rubano tempo ogni giorno: flussi automatici, meno passaggi manuali, meno errori.',
     },
     {
-      title: 'Integrazioni Api',
-      text: 'Sviluppo di applicazioni con API di terze parti, come Google Maps, Stripe, Twilio, SendGrid, OpenWeatherMap, ecc.',
+      title: 'Sistemi che parlano tra loro',
+      text: 'Collego il tuo sito o gestionale a pagamenti, email, mappe e servizi esterni, così i dati viaggiano da soli senza doppi inserimenti.',
     },
     {
-      title: 'Tipologia di progetti',
-      text: 'Sviluppo di siti web, web app, applicazioni desktop, applicazioni web progressive, applicazioni mobile, gestionali ERP e CRM, ecc.',
+      title: 'Siti e web app professionali',
+      text: 'Una presenza online veloce, curata e affidabile, progettata per trasformare i visitatori in richieste di contatto.',
     },
     {
-      title: 'Gestione',
-      text: 'Gestione di progetti con metodologie Agile, come Scrum, Kanban, Lean, ecc.',
+      title: 'AI applicata al tuo lavoro',
+      text: "Integro l'intelligenza artificiale dove porta valore concreto: gestione delle richieste, analisi dei messaggi, automazioni intelligenti.",
     },
     {
-      title: 'Strumenti di sviluppo',
-      text: 'Utilizzo di strumenti di sviluppo come Git, GitHub, VS Code, Slack, Monday, Docker, Cursor, oltre a Vibe Coding, Agent AI, Claude Code, Codex, Skills e MCP, ecc.',
+      title: 'Accompagnamento continuo',
+      text: 'Non sparisco dopo la consegna: evoluzione, manutenzione e supporto, con metodo e priorità chiare.',
     },
   ],
   en: [
     {
-      title: 'Frontend',
-      text: 'User interface design and user experience, developed with Vue.js, Nuxt 3, React.js, Next.js, TailwindCSS, Bootstrap, Material-UI, SASS, CSS3, HTML5, with state management via Pinia or Vuex',
+      title: 'Tailor-made tools',
+      text: 'Web apps and management systems built around your real processes, not the other way round: no useless features, only what you need to work better.',
     },
     {
-      title: 'Backend',
-      text: 'Backend development with Node.js, Express.js, Elixir, Phoenix, MongoDB, MySQL, PostgreSQL, Firebase, GraphQL, REST API, Supabase',
+      title: 'Process automation',
+      text: 'I remove the repetitive tasks that steal time every day: automated flows, fewer manual steps, fewer errors.',
     },
     {
-      title: 'Api Integrations',
-      text: 'Development of applications with third-party APIs, such as Google Maps, Stripe, Twilio, SendGrid, OpenWeatherMap, etc.',
+      title: 'Systems that talk to each other',
+      text: 'I connect your website or management system to payments, email, maps and external services, so data travels on its own with no double entry.',
     },
     {
-      title: 'Type of projects',
-      text: 'Development of websites, web apps, desktop applications, progressive web applications, mobile applications, ERP and CRM management systems, etc.',
+      title: 'Professional websites & web apps',
+      text: 'A fast, polished and reliable online presence, designed to turn visitors into enquiries.',
     },
     {
-      title: 'Management',
-      text: 'Project management with Agile methodologies, such as Scrum, Kanban, Lean, etc.',
+      title: 'AI applied to your work',
+      text: 'I integrate artificial intelligence where it brings concrete value: handling enquiries, message analysis, smart automations.',
     },
     {
-      title: 'Development tools',
-      text: 'Use of development tools such as Git, GitHub, VS Code, Slack, Monday, Docker, Cursor, as well as Vibe Coding, Agent AI, Claude Code, Codex, Skills and MCP, etc.',
-    },
-  ],
-  es: [
-    {
-      title: 'Frontend',
-      text: 'Diseño de interfaz de usuario y experiencia de usuario, desarrollado con Vue.js, Nuxt 3, React.js, Next.js, TailwindCSS, Bootstrap, Material-UI, SASS, CSS3, HTML5, con gestión del estado mediante Pinia o Vuex',
-    },
-    {
-      title: 'Backend',
-      text: 'Desarrollo de backend con Node.js, Express.js, Elixir, Phoenix, MongoDB, MySQL, PostgreSQL, Firebase, GraphQL, REST API, Supabase',
-    },
-    {
-      title: 'Integraciones de API',
-      text: 'Desarrollo de aplicaciones con APIs de terceros, como Google Maps, Stripe, Twilio, SendGrid, OpenWeatherMap, etc.',
-    },
-    {
-      title: 'Tipo de proyectos',
-      text: 'Desarrollo de sitios web, aplicaciones web, aplicaciones de escritorio, aplicaciones web progresivas, aplicaciones móviles, sistemas de gestión ERP y CRM, etc.',
-    },
-    {
-      title: 'Gestión',
-      text: 'Gestión de proyectos con metodologías ágiles, como Scrum, Kanban, Lean, etc.',
-    },
-    {
-      title: 'Herramientas de desarrollo',
-      text: 'Uso de herramientas de desarrollo como Git, GitHub, VS Code, Slack, Monday, Docker, Cursor, además de Vibe Coding, Agent AI, Claude Code, Codex, Skills y MCP, etc.',
-    },
-  ],
-  fr: [
-    {
-      title: 'Frontend',
-      text: "Design de l'interface utilisateur et expérience utilisateur, développé avec Vue.js, Nuxt 3, React.js, Next.js, TailwindCSS, Bootstrap, Material-UI, SASS, CSS3, HTML5, avec gestion de l'état via Pinia ou Vuex",
-    },
-    {
-      title: 'Backend',
-      text: 'Développement de backend avec Node.js, Express.js, Elixir, Phoenix, MongoDB, MySQL, PostgreSQL, Firebase, GraphQL, REST API, Supabase',
-    },
-    {
-      title: 'Intégrations API',
-      text: "Développement d'applications avec APIs de tiers, comme Google Maps, Stripe, Twilio, SendGrid, OpenWeatherMap, etc.",
-    },
-    {
-      title: 'Type de projets',
-      text: 'Développement de sites web, applications web, applications de bureau, applications web progressives, applications mobiles, logiciels de gestion ERP et CRM, etc.',
-    },
-    {
-      title: 'Gestion',
-      text: 'Gestion de projets avec des méthodologies agiles, comme Scrum, Kanban, Lean, etc.',
-    },
-    {
-      title: 'Outils de développement',
-      text: 'Utilisation d\'outils de développement comme Git, GitHub, VS Code, Slack, Monday, Docker, Cursor, ainsi que Vibe Coding, Agent AI, Claude Code, Codex, Skills et MCP, etc.',
+      title: 'Ongoing support',
+      text: "I don't disappear after delivery: evolution, maintenance and support, with a clear method and priorities.",
     },
   ],
 }

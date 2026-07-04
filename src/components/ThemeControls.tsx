@@ -9,10 +9,8 @@ interface ThemeControlsProps {
 }
 
 const locales: { code: Locale; label: string }[] = [
-  { code: 'en', label: 'EN' },
   { code: 'it', label: 'IT' },
-  { code: 'es', label: 'ES' },
-  { code: 'fr', label: 'FR' },
+  { code: 'en', label: 'EN' },
 ]
 
 const ThemeControls = ({ local, onLocaleChange }: ThemeControlsProps) => {

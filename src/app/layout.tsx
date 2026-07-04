@@ -53,14 +53,31 @@ export const metadata: Metadata = {
   },
 };
 
+// Dati strutturati: Person + ProfessionalService, per farsi riconoscere da
+// Google sia come professionista sia come attività di servizi digitali.
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: siteConfig.name,
-  url: siteConfig.url,
-  jobTitle: "Full Stack Developer",
-  description: siteConfig.description,
-  sameAs: [siteConfig.linkedin],
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${siteConfig.url}/#person`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+      jobTitle: "Digital Solutions Developer",
+      description: siteConfig.description,
+      sameAs: [siteConfig.linkedin],
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${siteConfig.url}/#service`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+      description: siteConfig.description,
+      founder: { "@id": `${siteConfig.url}/#person` },
+      areaServed: "IT",
+      availableLanguage: ["it", "en"],
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -69,7 +86,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="it">
       <body>
         {children}
         <script
