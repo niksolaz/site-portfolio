@@ -25,7 +25,7 @@ export default function Home() {
   // Quando il laptop cambia stato, il titolo si "ricompone" con effetto scramble
   // (anime.js): chiuso -> "NICOLA SOLAZZO", aperto -> "JS DEVELOPER".
   useEffect(() => {
-    const target = laptopOpen ? 'JS DEVELOPER' : 'NICOLA SOLAZZO'
+    const target = laptopOpen ? 'DIGITAL SOLUTIONS' : 'NICOLA SOLAZZO'
     let cancelled = false
     import('animejs').then(({ animate, scrambleText }) => {
       const el = headingRef.current
@@ -54,7 +54,7 @@ export default function Home() {
           <Hero3D open={laptopOpen} onToggle={() => setLaptopOpen((v) => !v)} />
           <h1
             ref={headingRef}
-            className="relative z-10 block bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text py-5 text-4xl font-extrabold uppercase tracking-tight text-transparent drop-shadow-[0_2px_18px_rgba(0,77,77,0.25)] lg:text-8xl"
+            className="relative z-10 block text-primary-light py-5 text-4xl font-extrabold uppercase tracking-tight text-transparent drop-shadow-[0_2px_18px_rgba(0,77,77,0.25)] lg:text-8xl"
           >
             Nicola Solazzo
           </h1>

@@ -26,7 +26,7 @@ const Navbar = ({ local, children }: NavbarProps) => {
   return (
     <nav className="fixed inset-x-0 top-0 z-30 mx-auto flex max-w-5xl items-center justify-between px-4 py-4 font-mono text-sm backdrop-blur">
       <Link href="/" className="text-primary text-xs lg:text-sm uppercase font-semibold">
-        Nicola Solazzo &gt;<span className="animate-pulse text-accent">_</span>
+        Nicola Solazzo &lt;<span className="animate-pulse text-accent">/</span>&gt;
       </Link>
 
       <div className="flex items-center gap-3">
