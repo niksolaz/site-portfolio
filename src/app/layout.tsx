@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { siteConfig } from "../lib/seo";
 import "./globals.css";
 
@@ -89,10 +90,15 @@ export default function RootLayout({
     <html lang="it">
       <body>
         {children}
-        <script
+        {/* JSON-LD strutturato via next/script: evita dangerouslySetInnerHTML.
+            I dati provengono da siteConfig (as const, trusted). */}
+        <Script
+          id="json-ld"
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+          strategy="beforeInteractive"
+        >
+          {JSON.stringify(jsonLd)}
+        </Script>
       </body>
     </html>
   );

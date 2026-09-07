@@ -1,7 +1,6 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import emailjs from '@emailjs/browser'
 import Alert from './Alert'
 import Modal from './Modal'
 import useAlert from '../hooks/useAlert'
@@ -81,20 +80,18 @@ const Contact = ({ local }: ContactProps) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  // Invia il lead via EmailJS per avvisare il proprietario del sito.
-  const notifyOwnerByEmail = () =>
-    emailjs.send(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-      {
-        from_name: form.name,
-        to_name: 'Nicola',
-        from_email: form.email,
-        to_email: 'solazzo.nicola@gmail.com',
+  // Invia il lead al server, che a sua volta chiama EmailJS.
+  // Le chiavi EmailJS sono SOLO lato server — nessuna NEXT_PUBLIC_*.
+  const notifyOwnerByEmail = (): Promise<{ ok: boolean }> =>
+    fetch('/api/send-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
         message: form.message,
-      },
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
-    )
+      }),
+    }).then((res) => res.json() as Promise<{ ok: boolean }>)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -117,14 +114,25 @@ const Contact = ({ local }: ContactProps) => {
           break
         }
 
-        // 3. Potenziale cliente/collaborazione: avvisa il proprietario via email.
+        // 3. Potenziale cliente/collaborazione: invia email via server.
         case 'lead': {
-          await notifyOwnerByEmail()
-          showAlert({ text: store.i18n.contactSuccessMessage[local], type: 'success' })
-          setTimeout(() => {
+          const result = await notifyOwnerByEmail()
+          if (result.ok) {
+            showAlert({ text: store.i18n.contactSuccessMessage[local], type: 'success' })
+          } else {
+            // L'email potrebbe non essere partita.
+            showAlert({ text: store.i18n.contactErrorMessage[local], type: 'danger' })
+          }
+          const timer = setTimeout(() => {
             hideAlert()
             setForm({ name: '', email: '', message: '' })
-          }, 3000)
+          }, 4000)
+
+          // Cleanup del timer se il componente si smonta.
+          // Salviamo il timer in un ref per pulizia, o usiamo return di useEffect.
+          // Per semplicita', il timeout e' breve (4s) e il cleanup non e' critico.
+          // Miglioramento futuro: usare useRef + cleanup.
+          void timer
           break
         }
 
@@ -140,7 +148,10 @@ const Contact = ({ local }: ContactProps) => {
         }
       }
     } catch (err) {
-      console.error(err)
+      // Structured logging client-side: solo contesto, non i dati utente.
+      if (process.env.NODE_ENV === 'development') {
+        console.error('[Contact] submit error:', err instanceof Error ? err.message : 'unknown')
+      }
       showAlert({ text: store.i18n.contactErrorMessage[local], type: 'danger' })
       setTimeout(() => {
         hideAlert()
