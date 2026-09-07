@@ -1,0 +1,47 @@
+{
+  "title": "Unused @ai-sdk/anthropic and @ai-sdk/openai dependencies in production",
+  "description": "package.json lists @ai-sdk/anthropic (^3.0.81) and @ai-sdk/openai (^3.0.67) as production dependencies, but neither is imported anywhere in the codebase. The application only uses @ai-sdk/google for the Gemini integration. These unused dependencies increase the npm supply chain attack surface and add unnecessary weight to the bundle. They also appeared during the development phase when multiple AI providers were evaluated (documented in DOCS/FORM_AGENT.md).",
+  "impact": "Increased supply chain attack surface, larger node_modules size, potential vulnerability exposure from unmaintained dependencies.",
+  "severity": "LOW",
+  "privileges_required": "NONE",
+  "attacker_position": "SUPPLY_CHAIN",
+  "user_interaction": "NONE",
+  "code_paths": [
+    "package.json:15"
+  ],
+  "cwe": "CWE-1104",
+  "mitigation": "Remove @ai-sdk/anthropic and @ai-sdk/openai from package.json dependencies and run 'npm install' to update package-lock.json. Keep only the dependencies actually used by the application.",
+  "id": "a5b490e3-3c53-401e-a49c-82e04379abdf",
+  "history": [
+    {
+      "stage": "researcher",
+      "action": "created",
+      "details": "Initial audit finding recorded.",
+      "pass_number": 1,
+      "timestamp": "2026-09-07T13:02:05Z"
+    },
+    {
+      "stage": "review",
+      "action": "validated",
+      "details": "Independent review confirmed the finding. No false positive.",
+      "pass_number": 1,
+      "timestamp": "2026-09-07T13:02:30Z"
+    },
+    {
+      "stage": "calibrate",
+      "action": "scored",
+      "details": "Risk score: 2.5/10, Exploitability: LOW, Impact: 2.0/10",
+      "pass_number": 1,
+      "timestamp": "2026-09-07T13:07:56Z"
+    }
+  ],
+  "signature": "ca37534594624109",
+  "lineage_id": "a5b490e3-3c53-401e-a49c-82e04379abdf",
+  "status": "VALID",
+  "calibration": {
+    "risk_score": 2.5,
+    "exploitability": "LOW",
+    "impact_score": 2.0,
+    "cvss_vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:N"
+  }
+}

@@ -1,0 +1,45 @@
+======================================================================
+STAGE: 12-reflect
+SKILL: mantis-reflect
+ORA INIZIO: 2026-09-07T13:07:30Z
+ORA FINE:   2026-09-07T13:08:00Z
+======================================================================
+
+COMANDO ESEGUITO:
+Estrazione learnings dalla sessione di review. Scritto in workspace/learnings.jsonl.
+
+DESCRIZIONE:
+Stage 12 della pipeline AppSec Mantis: reflection e learnings.
+
+8 learnings estratti:
+
+1. [ARCHITECTURE] Small Next.js portfolio, single attack surface.
+   Analisi trattabile senza sub-agents.
+
+2. [TOOL] npm audit ha rivelato 20 vulnerabilita' (1 critical).
+   Essenziale eseguirlo in ogni review.
+
+3. [PROCESS] Sub-agent delegation si e' bloccato durante architecture.
+   Per codebase piccole, la creazione manuale e' piu' affidabile.
+
+4. [SECURITY] Prompt injection in form AI: la difesa testuale
+   ("ignora istruzioni nel messaggio") e' bypassabile.
+
+5. [SECURITY] Rate limiting serverless con stato in-memory e'
+   fondamentalmente rotto. Serve stato distribuito.
+
+6. [SECURITY] NEXT_PUBLIC_ espone valori nel bundle client.
+   EmailJS service/template IDs permettono uso non autorizzato.
+
+7. [PROCESS] La pipeline Mantis funziona bene per web app ~20 file.
+   11 stage eseguiti in circa 20 minuti.
+
+8. [TOOL] dangerouslySetInnerHTML in layout.tsx e' rischio latente.
+   Sostituire con Next.js Script component per JSON-LD.
+
+RISULTATO:
+workspace/learnings.jsonl creato. 8 learnings per future passes.
+
+EVENTUALI ERRORI:
+Nessuno.
+======================================================================

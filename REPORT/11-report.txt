@@ -1,0 +1,42 @@
+======================================================================
+STAGE: 11-report
+SKILL: mantis-report
+ORA INIZIO: 2026-09-07T13:06:00Z
+ORA FINE:   2026-09-07T13:07:30Z
+======================================================================
+
+COMANDO ESEGUITO:
+Generazione del report human-readable da workspace/findings/. 
+Scritto in workspace/report/review_packet-latest.md.
+
+DESCRIZIONE:
+Stage 11 della pipeline AppSec Mantis: report finale.
+
+Il report (24.8 KB) contiene:
+- Executive Summary con metriche chiave
+- Top 3 priority issues
+- 13 findings dettagliati con risk score, CVSS, mitigation
+- Quick Reference Table
+- Remediation Priority (immediate, short-term, medium-term, long-term)
+- Methodology (pipeline stage eseguiti, modalita', artefatti)
+
+Struttura del report:
+  1. Executive Summary
+  2. Findings Detail (ordinati per severity: CRITICAL > HIGH > MEDIUM > LOW)
+  3. Quick Reference Table
+  4. Remediation Priority (12 azioni prioritarizzate)
+  5. Methodology
+
+Severity distribution nel report:
+  CRITICAL: 1  — npm audit 20 vulns (Next.js 14.1.1)
+  HIGH:     2  — Prompt Injection, Chain: Prompt→EmailJS
+  MEDIUM:   5  — Rate Limit, EmailJS Keys, Missing Headers, 2 Chains
+  LOW:      5  — Unused Deps, Timeout, console.error, Fire-forget, dSIH
+
+RISULTATO:
+workspace/report/review_packet-latest.md creato (24.8 KB).
+KB index (workspace/kb/index.md) creato per future passes.
+
+EVENTUALI ERRORI:
+Nessuno.
+======================================================================

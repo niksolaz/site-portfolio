@@ -1,0 +1,41 @@
+======================================================================
+STAGE: 06-dedupe
+SKILL: mantis-dedupe
+ORA INIZIO: 2026-09-07T13:01:40Z
+ORA FINE:   2026-09-07T13:02:00Z
+======================================================================
+
+COMANDO ESEGUITO:
+Analisi di deduplicazione dei 10 findings in workspace/findings/.
+
+DESCRIZIONE:
+Stage 6 della pipeline AppSec Mantis: consolidamento findings duplicati.
+
+Analisi effettuata:
+- Confronto per signature (hash del titolo normalizzato + CWE + primary target)
+- Confronto per code_paths (stesso file, stessa vulnerabilita')
+- Confronto per CWE e severity
+
+Risultato: NESSUN DUPLICATO.
+Tutti i 10 findings riguardano vulnerabilita' distinte:
+  1. Prompt Injection (CWE-74, route.ts + knowledge.ts)
+  2. Rate Limiting (CWE-770, route.ts)
+  3. EmailJS Keys (CWE-200, Contact.tsx)
+  4. Security Headers (CWE-693, next.config.mjs)
+  5. Unused Deps (CWE-1104, package.json)
+  6. Missing Timeout (CWE-400, route.ts)
+  7. console.error (CWE-532, route.ts)
+  8. EmailJS Fire-forget (CWE-252, Contact.tsx)
+  9. dangerouslySetInnerHTML (CWE-79, layout.tsx)
+  10. npm audit (CWE-1104, package.json)
+
+Nota: i findings #5 e #10 condividono CWE-1104 e package.json, ma sono
+vulnerabilita' distinte (dipendenze non usate vs vulnerabilita' note). 
+Non sono stati merge-ati.
+
+RISULTATO:
+Nessuna modifica ai findings. 10 file JSON invariati in workspace/findings/.
+
+EVENTUALI ERRORI:
+Nessuno.
+======================================================================

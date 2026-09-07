@@ -1,0 +1,46 @@
+{
+  "title": "Exploit Chain: Critical npm vulnerability amplified by missing security headers",
+  "description": "CHAIN ANALYSIS. This chain demonstrates defense-in-depth failure: the critical Next.js/PostCSS vulnerability (F#10) is more impactful because security headers (F#4) are absent. If the PostCSS path traversal (GHSA-r28c-9q8g-f849) is exploited to read arbitrary files, the lack of Content-Security-Policy means any injected content runs with full privileges. The absence of X-Content-Type-Options allows MIME-type confusion attacks. The missing X-Frame-Options enables clickjacking. This is not a direct exploit chain but a defense-in-depth analysis showing that multiple security controls that could limit the blast radius of a vulnerability are all absent simultaneously.",
+  "impact": "Amplified impact of any single vulnerability exploitation. Without CSP, XSS has unrestricted access. Without HSTS, MITM attacks are easier. Without frame protection, clickjacking is possible.",
+  "severity": "MEDIUM",
+  "privileges_required": "NONE",
+  "attacker_position": "EXTERNAL",
+  "user_interaction": "NONE",
+  "code_paths": [
+    "next.config.mjs:2",
+    "src/app/layout.tsx:1",
+    "package.json:24"
+  ],
+  "cwe": "CWE-693",
+  "chained_findings": [
+    "a8732491-80ab-4f4c-a857-0178d3b919e0",
+    "66eb518b-7c3d-4ff4-9722-48efe175a825"
+  ],
+  "mitigation": "(1) Fix the root cause: upgrade Next.js to 14.2.35+. (2) Add CSP, HSTS, X-Content-Type-Options, X-Frame-Options, and Referrer-Policy headers as defense-in-depth. (3) Run npm audit on every deploy. (4) Set up automated dependency scanning.",
+  "id": "e5d5f68e-8153-4a39-a405-1d868b7d92f4",
+  "status": "VALID",
+  "history": [
+    {
+      "stage": "chain",
+      "action": "created",
+      "details": "Exploit chain analysis.",
+      "pass_number": 1,
+      "timestamp": "2026-09-07T13:07:05Z"
+    },
+    {
+      "stage": "calibrate",
+      "action": "scored",
+      "details": "Risk score: 7.0/10, Exploitability: MEDIUM, Impact: 7.0/10",
+      "pass_number": 1,
+      "timestamp": "2026-09-07T13:07:56Z"
+    }
+  ],
+  "signature": "2024a2bd0b5ecbcc",
+  "lineage_id": "e5d5f68e-8153-4a39-a405-1d868b7d92f4",
+  "calibration": {
+    "risk_score": 7.0,
+    "exploitability": "MEDIUM",
+    "impact_score": 7.0,
+    "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+  }
+}

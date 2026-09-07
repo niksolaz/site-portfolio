@@ -1,0 +1,47 @@
+{
+  "title": "EmailJS send result not verified, leads may be silently lost",
+  "description": "In src/components/Contact.tsx:85, the notifyOwnerByEmail() function calls emailjs.send() but the caller (handleSubmit, line 122) does not await or check the return value meaningfully beyond the try/catch. If EmailJS returns a success response but the email is not actually delivered (e.g., template error, quota exceeded, service misconfiguration), the user sees a 'success' alert while the lead is silently lost. The only error handling is the catch block which shows a generic error message.",
+  "impact": "Loss of potential business leads without any indication to the site owner, false sense of security in the contact form functionality.",
+  "severity": "LOW",
+  "privileges_required": "NONE",
+  "attacker_position": "EXTERNAL",
+  "user_interaction": "REQUIRED",
+  "code_paths": [
+    "src/components/Contact.tsx:85"
+  ],
+  "cwe": "CWE-252",
+  "mitigation": "(1) Check the EmailJS response status before showing success. (2) Implement a fallback: if EmailJS fails, store the lead in a database or send via an alternative method. (3) Add server-side logging of all lead submissions for audit and recovery. (4) Set up monitoring/alerting for EmailJS delivery failures.",
+  "id": "6cc7d741-dea7-4ce4-bf39-b7d0a23516f3",
+  "history": [
+    {
+      "stage": "researcher",
+      "action": "created",
+      "details": "Initial audit finding recorded.",
+      "pass_number": 1,
+      "timestamp": "2026-09-07T13:02:05Z"
+    },
+    {
+      "stage": "review",
+      "action": "validated",
+      "details": "Independent review confirmed the finding. No false positive.",
+      "pass_number": 1,
+      "timestamp": "2026-09-07T13:02:30Z"
+    },
+    {
+      "stage": "calibrate",
+      "action": "scored",
+      "details": "Risk score: 3.5/10, Exploitability: MEDIUM, Impact: 3.0/10",
+      "pass_number": 1,
+      "timestamp": "2026-09-07T13:07:56Z"
+    }
+  ],
+  "signature": "c2b8fd1069ee5c24",
+  "lineage_id": "6cc7d741-dea7-4ce4-bf39-b7d0a23516f3",
+  "status": "VALID",
+  "calibration": {
+    "risk_score": 3.5,
+    "exploitability": "MEDIUM",
+    "impact_score": 3.0,
+    "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:L"
+  }
+}

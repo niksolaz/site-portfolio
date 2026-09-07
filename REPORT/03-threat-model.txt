@@ -1,0 +1,50 @@
+======================================================================
+STAGE: 03-threat-model
+SKILL: mantis-threat-model
+ORA INIZIO: 2026-09-07T12:55:30Z
+ORA FINE:   2026-09-07T12:57:10Z
+======================================================================
+
+COMANDO ESEGUITO:
+Sintesi del threat model basato sull'architettura KB. Creato manualmente
+workspace/kb/THREAT_MODEL.md.
+
+DESCRIZIONE:
+Stage 3 della pipeline AppSec Mantis: costruzione del modello di minaccia.
+
+Il threat model e' stato costruito leggendo workspace/kb/architecture.md e
+workspace/kb/entities/*.md. Contiene:
+
+1. System Overview — riepilogativo dall'architettura
+2. Deployment Intent: PRODUCTION (verificato con checklist PRODUCTION-SIGNAL:
+   5/5 check FALSE → il sito e' un servizio reale, non sample/test)
+3. Trust Boundaries (5):
+   - Internet ↔ Vercel/Next.js Server (POST /api/chat, pagine statiche)
+   - Next.js Server ↔ Google Gemini API (messaggi utente, system prompt)
+   - Browser ↔ EmailJS API (chiavi NEXT_PUBLIC_*, dati form)
+   - Browser ↔ localStorage (preferenze UI)
+   - Browser ↔ React DOM (dangerouslySetInnerHTML, AI reply render)
+4. Threat Actors (5):
+   - TA-1: Unauthenticated Network Attacker (EXTERNAL)
+   - TA-2: Malicious Visitor / Form Abuser (EXTERNAL)
+   - TA-3: Supply Chain Attacker (SUPPLY_CHAIN)
+   - TA-4: Network Eavesdropper (INTERNAL_NETWORK)
+   - TA-5: Malicious Insider (HOST_SYSTEM)
+5. High-Risk Assets (5):
+   - Google Gemini API Key (STANDARD availability)
+   - User Messages / Form Data (STANDARD)
+   - EmailJS Credentials (LOW_CRITICALITY)
+   - Site Availability (STANDARD)
+   - Reputation & Content (STANDARD)
+6. Risk Matrix preliminare (9 rischi classificati):
+   - 1 HIGH: Prompt injection su /api/chat
+   - 4 MEDIUM: Abuso EmailJS, Next.js CVE, DoS AI, Supply chain npm
+   - 4 LOW: Rate limit bypass, XSS, CSP assente, Data exposure GDPR
+
+RISULTATO:
+workspace/kb/THREAT_MODEL.md creato (8.5 KB). Prima linea:
+"KB_SNAPSHOT: UNPINNED" (MODE-OFF, nessun snapshot pinnato).
+
+EVENTUALI ERRORI:
+Nessuno.
+======================================================================

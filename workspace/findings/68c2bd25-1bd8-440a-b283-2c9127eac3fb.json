@@ -1,0 +1,47 @@
+{
+  "title": "EmailJS service and template IDs exposed in client-side JavaScript bundle",
+  "description": "The Contact.tsx component uses EmailJS with credentials prefixed NEXT_PUBLIC_: NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, and NEXT_PUBLIC_EMAILJS_PUBLIC_KEY. In Next.js, the NEXT_PUBLIC_ prefix makes these variables available in the browser JavaScript bundle. While EmailJS is designed to have the public key exposed, the service_id and template_id allow anyone with these values to send emails through the configured EmailJS template. This could lead to spam, phishing, or quota exhaustion (free tier: 200 emails/month).",
+  "impact": "Unauthorized email sending, EmailJS quota exhaustion, potential phishing if the template is abused to send misleading emails.",
+  "severity": "MEDIUM",
+  "privileges_required": "NONE",
+  "attacker_position": "EXTERNAL",
+  "user_interaction": "NONE",
+  "code_paths": [
+    "src/components/Contact.tsx:86"
+  ],
+  "cwe": "CWE-200",
+  "mitigation": "(1) Move email sending to a server-side API route so credentials stay server-only. (2) Use EmailJS's domain restriction feature to limit which domains can use the keys. (3) Implement CAPTCHA or honeypot on the form to prevent automated abuse. (4) Add server-side rate limiting specifically for email sends. (5) Monitor EmailJS usage and set up alerts for quota limits.",
+  "id": "68c2bd25-1bd8-440a-b283-2c9127eac3fb",
+  "history": [
+    {
+      "stage": "researcher",
+      "action": "created",
+      "details": "Initial audit finding recorded.",
+      "pass_number": 1,
+      "timestamp": "2026-09-07T13:02:05Z"
+    },
+    {
+      "stage": "review",
+      "action": "validated",
+      "details": "Independent review confirmed the finding. No false positive.",
+      "pass_number": 1,
+      "timestamp": "2026-09-07T13:02:30Z"
+    },
+    {
+      "stage": "calibrate",
+      "action": "scored",
+      "details": "Risk score: 5.0/10, Exploitability: HIGH, Impact: 4.0/10",
+      "pass_number": 1,
+      "timestamp": "2026-09-07T13:07:56Z"
+    }
+  ],
+  "signature": "5eecc0b9edb4ee59",
+  "lineage_id": "68c2bd25-1bd8-440a-b283-2c9127eac3fb",
+  "status": "VALID",
+  "calibration": {
+    "risk_score": 5.0,
+    "exploitability": "HIGH",
+    "impact_score": 4.0,
+    "cvss_vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L"
+  }
+}

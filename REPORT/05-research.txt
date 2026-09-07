@@ -1,0 +1,82 @@
+======================================================================
+STAGE: 05-research
+SKILL: mantis-researcher
+ORA INIZIO: 2026-09-07T12:58:30Z
+ORA FINE:   2026-09-07T13:01:40Z
+======================================================================
+
+COMANDO ESEGUITO:
+Deep code sweep di tutti i file elencati in workspace/plan.json (14 investigazioni).
+Analisi statica manuale + npm audit per vulnerabilita' note.
+
+DESCRIZIONE:
+Stage 5 della pipeline AppSec Mantis: analisi di sicurezza approfondita.
+
+10 findings creati in workspace/findings/:
+
+FINDING #1 [HIGH]          0c219d86
+  Prompt Injection vulnerability in AI contact form endpoint
+  CWE-74 | src/app/api/chat/route.ts:79, src/lib/knowledge.ts:46
+  L'endpoint AI inserisce il messaggio utente direttamente nel prompt.
+  Mitigazione solo testuale, facilmente bypassabile.
+
+FINDING #2 [MEDIUM]        465d403b
+  Rate limiting bypass due to non-shared state in serverless deployment
+  CWE-770 | src/app/api/chat/route.ts:20
+  La mappa in-memory non e' condivisa tra istanze serverless Vercel.
+  Bypassabile semplicemente con richieste distribuite.
+
+FINDING #3 [MEDIUM]        68c2bd25
+  EmailJS service and template IDs exposed in client-side bundle
+  CWE-200 | src/components/Contact.tsx:86
+  Chiavi NEXT_PUBLIC_EMAILJS_* nel bundle JS permettono invio email non autorizzato.
+
+FINDING #4 [MEDIUM]        66eb518b
+  Missing Content-Security-Policy and other security headers
+  CWE-693 | next.config.mjs:2, src/app/layout.tsx:1
+  Assenti CSP, HSTS, X-Content-Type-Options, X-Frame-Options, Referrer-Policy.
+
+FINDING #5 [LOW]           a5b490e3
+  Unused @ai-sdk/anthropic and @ai-sdk/openai dependencies
+  CWE-1104 | package.json:15
+  Dipendenze non usate aumentano la superficie supply chain.
+
+FINDING #6 [LOW]           f8d32e7a
+  Missing timeout on Google Gemini API call
+  CWE-400 | src/app/api/chat/route.ts:79
+  Nessun timeout su generateObject() — possibile hanging request.
+
+FINDING #7 [LOW]           0115a856
+  Sensitive data potentially exposed via console.error in production
+  CWE-532 | src/app/api/chat/route.ts:91
+  Log dell'errore completo potrebbe esporre dati utente in produzione.
+
+FINDING #8 [LOW]           6cc7d741
+  EmailJS send is fire-and-forget without error verification
+  CWE-252 | src/components/Contact.tsx:85
+  L'invio email non verifica l'esito — lead potenzialmente persi.
+
+FINDING #9 [LOW]           4b088830
+  dangerouslySetInnerHTML used for JSON-LD structured data
+  CWE-79 | src/app/layout.tsx:92
+  Pattern XSS latente (attualmente safe, dati statici).
+
+FINDING #10 [CRITICAL]     a8732491
+  npm audit reveals 20 vulnerabilities including 1 critical
+  CWE-1104 | package.json:24
+  Next.js 14.1.1 con vulnerabilita' critica PostCSS path traversal.
+  4 moderate, 15 high, 1 critical. Fix disponibile: next@14.2.35.
+
+RISULTATO:
+10 findings scritti in workspace/findings/. Struttura conforme allo schema
+Mantis: id UUID, title, description, impact, severity, code_paths, cwe,
+signature, lineage_id, mitigation, history.
+
+Verifiche aggiuntive:
+- npm audit eseguito: 20 vulnerabilita' trovate (1 critical)
+- middleware.ts: assente (conferma assenza header security)
+- Tutti i file in plan.json sono stati analizzati
+
+EVENTUALI ERRORI:
+Nessuno.
+======================================================================
