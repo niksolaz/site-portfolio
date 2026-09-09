@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "favicon_32x32_favicon",
+      "label": "32x32 favicon for Nicola Solazzo portfolio site — minimalist PNG with warm cream (#FAF3EB) accent bar on transparent background",
+      "file_type": "image",
+      "source_file": "/home/niksolaz/dev/site-portfolio/src/app/favicon-32x32.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "confidence_score": 1.0
+    },
+    {
+      "id": "favicon_32x32_site_identity",
+      "label": "Brand identity: Nicola Solazzo — Digital Solutions Developer portfolio (nicolasolazzo.com)",
+      "file_type": "image",
+      "source_file": "/home/niksolaz/dev/site-portfolio/src/app/favicon-32x32.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "confidence_score": 0.95
+    },
+    {
+      "id": "favicon_32x32_nextjs_asset",
+      "label": "Next.js app directory static asset (src/app/) used as browser tab icon",
+      "file_type": "image",
+      "source_file": "/home/niksolaz/dev/site-portfolio/src/app/favicon-32x32.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "confidence_score": 0.9
+    }
+  ],
+  "edges": [],
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
